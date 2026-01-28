@@ -1,37 +1,30 @@
 -- Creation Tables
-CREATE TABLE User (
-    id_utilisateur INT AUTO_INCREMENT,
+CREATE TABLE Users
+(
+    id INT AUTO_INCREMENT,
     email VARCHAR(255) UNIQUE NOT NULL,
-    mot_de_passe VARCHAR(255) NOT NULL,
+    mdp VARCHAR(255) NOT NULL,
     nom_utilisateur VARCHAR(255) NOT NULL,
     PRIMARY KEY (id_utilisateur)
-) ENGINE=InnoDB;
+);
 
-CREATE TABLE Paiement (
-    id_paiement INT AUTO_INCREMENT,
-    systeme_paiement VARCHAR(100) NOT NULL,
-    PRIMARY KEY (id_paiement)
-) ENGINE=InnoDB;
-
--- Table Livraison
-CREATE TABLE Livraison (
-    id_livraison INT AUTO_INCREMENT,
-    description_donnee TEXT,
-    type_donnee VARCHAR(100),
-    date_enregistrement DATETIME NOT NULL,
-    PRIMARY KEY (id_livraison)
-) ENGINE=InnoDB;
-
--- Table Menu
-CREATE TABLE Menu (
-    id_menu INT AUTO_INCREMENT,
+CREATE TABLE Articles
+(
+    id_article INT AUTO_INCREMENT,
     nom VARCHAR(255) NOT NULL,
     prix_menu DECIMAL(10, 2) NOT NULL,
     PRIMARY KEY (id_menu)
-) ENGINE=InnoDB;
+);
 
--- Table Commande
-CREATE TABLE Commande (
+CREATE TABLE Paiement
+(
+    id_paiement INT AUTO_INCREMENT,
+    systeme_paiement VARCHAR(100) NOT NULL,
+    PRIMARY KEY (id_paiement)
+);
+
+CREATE TABLE Compte
+(
     id_commande INT AUTO_INCREMENT,
     nom_reference VARCHAR(255),
     e_mail VARCHAR(255),
@@ -42,36 +35,35 @@ CREATE TABLE Commande (
         FOREIGN KEY (id_paiement)
         REFERENCES Paiement(id_paiement)
         ON DELETE RESTRICT
-) ENGINE=InnoDB;
+);
 
--- Table Faire (Relation User - Commande)
-CREATE TABLE Faire (
+CREATE TABLE Faire
+(
     id_utilisateur INT NOT NULL,
     id_commande INT NOT NULL UNIQUE,
     PRIMARY KEY (id_utilisateur, id_commande),
     FOREIGN KEY (id_utilisateur) REFERENCES User(id_utilisateur) ON DELETE CASCADE,
     FOREIGN KEY (id_commande) REFERENCES Commande(id_commande) ON DELETE CASCADE
-) ENGINE=InnoDB;
+);
 
--- Table Composer (Relation Commande - Menu)
-CREATE TABLE Composer (
+CREATE TABLE Composer
+(
     id_commande INT NOT NULL,
     id_menu INT NOT NULL,
     quantite INT NOT NULL DEFAULT 1,
     PRIMARY KEY (id_commande, id_menu),
     FOREIGN KEY (id_commande) REFERENCES Commande(id_commande) ON DELETE CASCADE,
     FOREIGN KEY (id_menu) REFERENCES Menu(id_menu) ON DELETE CASCADE
-) ENGINE=InnoDB; 
+); 
 
--- Table Livrer (Relation Commande - Livraison)
-CREATE TABLE Livrer (
+CREATE TABLE Livrer
+(
     id_commande INT NOT NULL,
     id_livraison INT NOT NULL,
     PRIMARY KEY (id_commande, id_livraison),
     FOREIGN KEY (id_commande) REFERENCES Commande(id_commande) ON DELETE CASCADE,
     FOREIGN KEY (id_livraison) REFERENCES Livraison(id_livraison) ON DELETE CASCADE
-) ENGINE=InnoDB; 
-
+);
 
 -- Insertion Tables
 INSERT INTO User (id_utilisateur, email, mot_de_passe, nom_utilisateur) VALUES
