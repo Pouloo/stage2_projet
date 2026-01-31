@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36" version="29.3.6">
   <diagram name="Page-1" id="twaHEqMDjoDLKVLHnj4T">
-    <mxGraphModel dx="1766" dy="1351" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="321" dy="512" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -62,7 +62,7 @@
         <mxCell id="AJsSFgYsd-EPnzz_VSRQ-242" parent="AJsSFgYsd-EPnzz_VSRQ-240" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" value="Nom" vertex="1">
           <mxGeometry height="30" width="140" y="60" as="geometry" />
         </mxCell>
-        <mxCell id="AJsSFgYsd-EPnzz_VSRQ-243" parent="AJsSFgYsd-EPnzz_VSRQ-240" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" value="Descriptif" vertex="1">
+        <mxCell id="AJsSFgYsd-EPnzz_VSRQ-243" parent="AJsSFgYsd-EPnzz_VSRQ-240" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" value="Description" vertex="1">
           <mxGeometry height="30" width="140" y="90" as="geometry" />
         </mxCell>
         <mxCell id="AJsSFgYsd-EPnzz_VSRQ-244" parent="AJsSFgYsd-EPnzz_VSRQ-240" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" value="Quantite" vertex="1">
@@ -120,7 +120,7 @@
           <mxGeometry height="30" width="140" y="120" as="geometry" />
         </mxCell>
         <mxCell id="AJsSFgYsd-EPnzz_VSRQ-292" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="PAIEMENT" vertex="1">
-          <mxGeometry height="210" width="140" x="1049" y="651" as="geometry" />
+          <mxGeometry height="210" width="140" x="1048" y="625" as="geometry" />
         </mxCell>
         <mxCell id="AJsSFgYsd-EPnzz_VSRQ-293" parent="AJsSFgYsd-EPnzz_VSRQ-292" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" value="&lt;u&gt;ID&lt;/u&gt;" vertex="1">
           <mxGeometry height="30" width="140" y="30" as="geometry" />
