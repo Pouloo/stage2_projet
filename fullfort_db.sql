@@ -1,80 +1,84 @@
 -- Creation Tables
 CREATE TABLE User
 (
-    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    id INT PRIMARY KEY AUTO_INCREMENT,
     username TEXT UNIQUE NOT NULL,
     login TEXT UNIQUE NOT NULL,
     mdp TEXT UNIQUE NOT NULL,
-    is_admin BIT NOT NULL,
-    id_admin INT FOREIGN KEY REFERENCES User(id),
-    id_compte INT FOREIGN KEY REFERENCES Compte(id)
+    is_admin BIT,
+    id_compte INT,
+    id_admin INT
 );
-
 CREATE TABLE Compte
 (
-    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    id INT PRIMARY KEY AUTO_INCREMENT,
     nom TEXT NOT NULL,
     prenom TEXT NOT NULL,
     telephone TEXT(15) UNIQUE NOT NULL,
     mail TEXT(60) UNIQUE NOT NULL,
-    id_user INT FOREIGN KEY REFERENCES User(id)
+    id_user INT
 );
 
 CREATE TABLE Article
 (
-    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    id INT PRIMARY KEY AUTO_INCREMENT,
     nom TEXT NOT NULL,
     description TEXT NOT NULL,
     quantite INT NOT NULL,
     prix DECIMAL(10, 2) NOT NULL,
-    id_categorie INT FOREIGN KEY REFERENCES Categorie(id)
+    id_categorie INT
 );
 
 CREATE TABLE Paiement
 (
-    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    id INT PRIMARY KEY AUTO_INCREMENT,
     prix DECIMAL(10, 2) NOT NULL,
     prix_tva DECIMAL(10, 2) NOT NULL,
     moyen_paiement TEXT NOT NULL,
-    id_compte INT FOREIGN KEY REFERENCES Compte(id),
-    id_panier INT FOREIGN KEY REFERENCES Panier(id)
+    id_compte INT,
+    id_panier INT
 );
 
 CREATE TABLE Panier
 (
-    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    id INT PRIMARY KEY AUTO_INCREMENT,
     nombre_articles INT NOT NULL,
-    id_user INT FOREIGN KEY REFERENCES User(id),
-    id_article INT FOREIGN KEY REFERENCES Article(id)
+    id_user INT,
+    id_article INT
 );
 
 CREATE TABLE Reduction
 (
-    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    id INT PRIMARY KEY AUTO_INCREMENT,
     points_fidelite INT,
-    taux_reduction INT(0, 1),
-    id_compte INT FOREIGN KEY REFERENCES Compte(id)
+    taux_reduction FLOAT(1, 0),
+    id_compte INT
 );
 
 CREATE TABLE Categorie
 (
-    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    id INT PRIMARY KEY AUTO_INCREMENT,
     titre TEXT UNIQUE
 );
 
 CREATE TABLE Commande
 (
-    id_user INT FOREIGN KEY REFERENCES User(id),
-    id_article INT FOREIGN KEY REFERENCES Article(id)
+    id_user INT,
+    id_article INT
 );
 
--- Insertion Tables
--- INSERT INTO User(...) VALUES
--- (1, 'patrick.adhemar@example.com', 'pass123', 'PatrickA'),
--- (2, 'jean.francois@example.com', 'pass456', 'JeanF'),
--- (3, 'alex.kuzbidon@example.com', 'pass789', 'AlexK'),
--- (4, 'anasthasie.locale@example.com', 'pass012', 'AnasthasieL'),
--- (5, 'armand.teutmaronne@example.com', 'pass345', 'ArmandT'),
--- (6, 'debbie@example.com', 'pass678', 'Debbie');
+ALTER TABLE User ADD FOREIGN KEY (id_admin) REFERENCES User(id);
+ALTER TABLE User ADD FOREIGN KEY (id_compte) REFERENCES Compte(id);
+ALTER TABLE Compte ADD FOREIGN KEY (id_user) REFERENCES User(id);
+ALTER TABLE Article ADD FOREIGN KEY (id_categorie) REFERENCES Categorie(id);
+ALTER TABLE Paiement ADD FOREIGN KEY (id_compte) REFERENCES Compte(id);
+ALTER TABLE Paiement ADD FOREIGN KEY (id_panier) REFERENCES Panier(id);
+ALTER TABLE Panier ADD FOREIGN KEY (id_user) REFERENCES User(id);
+ALTER TABLE Panier ADD FOREIGN KEY (id_article) REFERENCES Article(id);
+ALTER TABLE Commande ADD FOREIGN KEY (id_user) REFERENCES User(id);
+ALTER TABLE Reduction ADD FOREIGN KEY (id_compte) REFERENCES Compte(id);
+ALTER TABLE Commande ADD FOREIGN KEY (id_user) REFERENCES User(id);
+ALTER TABLE Commande ADD FOREIGN KEY (id_article) REFERENCES Article(id);
 
--- SET FOREIGN_KEY_CHECKS = 1; -- Réactive la vérification des clés étrangères--
+-- Insertion Données
+-- (...)
