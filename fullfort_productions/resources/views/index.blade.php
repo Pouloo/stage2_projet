@@ -79,13 +79,13 @@
             <a href="{{route('login')}}">
               <i class="fa fa-user" aria-hidden="true"></i>
               <span>
-                Login
+                Connexion
               </span>
             </a>
             <a href="{{route('register')}}">
               <i class="fa fa-user" aria-hidden="true"></i>
               <span>
-                Sign Up
+                Inscription
               </span>
             </a>
             @endif
