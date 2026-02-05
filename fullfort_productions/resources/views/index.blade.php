@@ -72,7 +72,7 @@
             <a href="{{route('dashboard')}}">
               <i class="fa fa-user" aria-hidden="true"></i>
               <span>
-                Dashboard
+                Tableau de Bord
               </span>
             </a>
             @else
@@ -114,8 +114,7 @@
                   <div class="col-md-7">
                     <div class="detail-box"> 
                       <h1>
-                        Welcome To Our <br>
-                        Gift Shop
+                        Bienvenue
                       </h1>
                       <p>
                         Sequi perspiciatis nulla reiciendis, rem, tenetur impedit, eveniet non necessitatibus error distinctio mollitia suscipit. Nostrum fugit doloribus consequatur distinctio esse, possimus maiores aliquid repellat beatae cum, perspiciatis enim, accusantium perferendis.
@@ -150,7 +149,7 @@
     <div class="container">
       <div class="heading_container heading_center">
         <h2>
-          Latest Products
+          Nouveautés
         </h2>
       </div>
       <div class="row">

@@ -82,11 +82,13 @@
         </div>
         <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
         <ul class="list-unstyled">
-                <li class="active"><a href="/dashboard"> <i class="icon-home"></i>Home </a></li>
+
+                <li class="active"><a href="/dashboard"> <i class="icon-home"></i>Vue D'ensemble</a></li>
                 
                 <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Catégories</a>
                   <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
                     <li><a href="{{route('admin.add.category')}}">Ajouter Catégorie</a></li>
+                    <li><a href="{{route('admin.show.category')}}">Afficher Catégories</a></li>
                   </ul>
                 </li>
         </ul>
@@ -95,13 +97,19 @@
       <div class="page-content">
         <div class="page-header">
           <div class="container-fluid">
-            <h2 class="h5 no-margin-bottom">Dashboard</h2>
+            <h2 class="h5 no-margin-bottom">Tableau de Bord: Administration</h2>
           </div>
         </div>
         <section class="no-padding-top no-padding-bottom">
+
           @yield('dashboard')
 
           @yield('add_category')
+          
+          @yield('show_category')
+          
+          @yield('update_category')
+
         </section>
         
         <footer class="footer">

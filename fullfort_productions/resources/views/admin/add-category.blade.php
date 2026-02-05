@@ -1,20 +1,19 @@
 @extends('admin.design')
 
+<base href="/public">
 @section('add_category')
 
-    @if(session('category_message'))
-        <div class="mb-4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative">
-            {{ session('category_message') }}
+    @if(session('category_add_message'))
+        <div class="mb-4 border px-4 py-3 rounded relative" style="color: green;">
+            {{ session('category_add_message') }}
         </div>
     @endif
     <div class="container-fluid">
-        <form action="{{route('admin.post.category')}}" method="POST">
+        <form action="{{route('admin.post.add.category')}}" method="POST">
             @csrf
-            <input type="text" name="category" placeholder="Entrez nom catégorie">
-            <input type="submit" name="submit" value="Ajouter Catégorie">
+            <input type="text" name="category" placeholder="Entrez nom catégorie" style="height: 50px;">
+            <input type="submit" name="submit" value="Ajouter Catégorie" style="height: 50px; color: green; font-weight: bold">
         </form>
     </div>
-
-    
 
 @endsection
