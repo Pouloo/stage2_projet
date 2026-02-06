@@ -91,6 +91,14 @@
                     <li><a href="{{route('admin.show.category')}}">Afficher Catégories</a></li>
                   </ul>
                 </li>
+                
+                <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Produits</a>
+                  <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
+                    <li><a href="{{route('admin.add.product')}}">Ajouter Produit</a></li>
+                    <li><a href="#">Afficher Produits</a></li>
+                    <li><a href="#">Afficher Commande</a></li>
+                  </ul>
+                </li>
         </ul>
       </nav>
       <!-- Sidebar Navigation end-->
@@ -109,6 +117,8 @@
           @yield('show_category')
           
           @yield('update_category')
+
+          @yield('add_product')
 
         </section>
         

@@ -11,7 +11,7 @@
     <div class="container-fluid">
         <form action="{{route('admin.post.add.category')}}" method="POST">
             @csrf
-            <input type="text" name="category" placeholder="Entrez nom catégorie" style="height: 50px;">
+            <input type="text" name="category_name" placeholder="Entrez Nom" style="height: 50px;">
             <input type="submit" name="submit" value="Ajouter Catégorie" style="height: 50px; color: green; font-weight: bold">
         </form>
     </div>
