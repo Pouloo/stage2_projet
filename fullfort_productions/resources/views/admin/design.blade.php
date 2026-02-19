@@ -3,7 +3,7 @@
   <head> 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Dark Bootstrap Admin </title>
+    <title>Tableau de Bord: Admin </title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -95,7 +95,7 @@
                 <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Produits</a>
                   <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
                     <li><a href="{{route('admin.add.product')}}">Ajouter Produit</a></li>
-                    <li><a href="#">Afficher Produits</a></li>
+                    <li><a href="{{route('admin.show.product')}}">Afficher Produits</a></li>
                     <li><a href="#">Afficher Commande</a></li>
                   </ul>
                 </li>
@@ -119,6 +119,10 @@
           @yield('update_category')
 
           @yield('add_product')
+
+          @yield('show_product')
+
+          @yield('update_product')
 
         </section>
         

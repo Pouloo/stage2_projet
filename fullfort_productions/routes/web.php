@@ -33,6 +33,13 @@ Route::middleware('admin')->group(function ()
 
     Route::get('/add-product', [AdminController::class, 'add_product'])->name('admin.add.product');
     Route::post('/add-product', [AdminController::class, 'post_add_product'])->name('admin.post.add.product');
+
+    Route::get('/show-product', [AdminController::class, 'show_product'])->name('admin.show.product');
+
+    Route::get('/delete-product/{id}', [AdminController::class, 'delete_product'])->name('admin.delete.product');
+
+    Route::get('/update-product/{id}', [AdminController::class, 'update_product'])->name('admin.update.product');
+    Route::post('/update-product/{id}', [AdminController::class, 'post_update_product'])->name('admin.post.update.product');
 });
 
 require __DIR__.'/auth.php';

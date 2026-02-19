@@ -15,7 +15,9 @@
             <textarea name="product_description" placeholder="Entrez Description" style="height: 50px;"></textarea><br><br>
             <input type="number" name="product_quantity" placeholder="Entrez Quantité" style="height: 50px;"><br><br>
             <input type="number" name="product_price" placeholder="Entrez Prix" style="height: 50px;"><br><br>
+            <label>Entrez Image</label><br>
             <input type="file" name="product_image" style="height: 50px;"><br><br>
+            <label>Entrez Catégorie</label><br>
             <select name="product_category">
                 @foreach ($categories as $category)
                 <option value="{{$category->name}}">{{$category->name}}</option>

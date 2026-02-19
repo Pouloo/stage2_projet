@@ -11,7 +11,7 @@
     <div class="container-fluid">
         <form action="{{route('admin.post.update.category', $category->id)}}" method="POST">
             @csrf
-            <input type="text" name="category_name" value="{{$category->name}}" style="height: 50px;">
+            <input type="text" name="category_name" placeholder="Entrez Nom" value="{{$category->name}}" style="height: 50px;">
             <input type="submit" name="submit" value="Modifier Catégorie" style="height: 50px; color: Turquoise; font-weight: bold">
         </form>
     </div>
