@@ -5,10 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () 
-{
-    return view('index');
-})->name('index');
+Route::get('/', [UserController::class, 'home'])->name('index');
 
 Route::get('/dashboard', [UserController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -40,6 +37,8 @@ Route::middleware('admin')->group(function ()
 
     Route::get('/update-product/{id}', [AdminController::class, 'update_product'])->name('admin.update.product');
     Route::post('/update-product/{id}', [AdminController::class, 'post_update_product'])->name('admin.post.update.product');
+
+    Route::get('/product-details/{id}', [UserController::class, 'get_product_details'])->name('product.details');
 });
 
 require __DIR__.'/auth.php';

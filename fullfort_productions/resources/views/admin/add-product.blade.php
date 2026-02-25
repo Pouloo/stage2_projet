@@ -20,7 +20,7 @@
             <label>Entrez Catégorie</label><br>
             <select name="product_category">
                 @foreach ($categories as $category)
-                <option value="{{$category->name}}">{{$category->name}}</option>
+                    <option value="{{$category->name}}">{{$category->name}}</option>
                 @endforeach
             </select><br><br>
             <input type="submit" name="submit" value="Ajouter Produit" style="height: 50px; color: green; font-weight: bold">

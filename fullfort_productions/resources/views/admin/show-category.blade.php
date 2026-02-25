@@ -20,14 +20,14 @@
     </thead>
     <tbody>
         @foreach($categories as $category)
-        <tr style="border-bottom: 1px solid #dddddd;">
-            <td style="padding: 12px;">{{$category->id}}</td>
-            <td style="padding: 12px;">{{$category->name}}</td>
-            <td style="padding: 12px;">
-                <a href="{{route('admin.update.category', $category->id)}}" style="color: turquoise;">Modifier</a>
-                <a href="{{route('admin.delete.category', $category->id)}}" onclick="return confirm('Veuillez confirmer la suppression.')" style="color: orangered;">Supprimer</a>
-            </td>
-        </tr>
+            <tr style="border-bottom: 1px solid #dddddd;">
+                <td style="padding: 12px;">{{$category->id}}</td>
+                <td style="padding: 12px;">{{$category->name}}</td>
+                <td style="padding: 12px;">
+                    <a href="{{route('admin.update.category', $category->id)}}" style="color: turquoise;">Modifier</a>
+                    <a href="{{route('admin.delete.category', $category->id)}}" onclick="return confirm('Veuillez confirmer la suppression.')" style="color: orangered;">Supprimer</a>
+                </td>
+            </tr>
         @endforeach
     </tbody>
 </table>
