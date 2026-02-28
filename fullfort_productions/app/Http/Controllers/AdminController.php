@@ -10,7 +10,7 @@ class AdminController extends Controller
 {
     public function add_category()
     {
-        return view("admin.add-category");
+        return view('admin.add-category');
     }
     public function post_add_category(Request $request)
     {
@@ -92,6 +92,7 @@ class AdminController extends Controller
 
         if (file_exists($img_path))
             unlink($img_path);
+        
         $product->delete();
 
         return redirect()->back()->with('product_del_message', 'Produit supprimée avec succès!');

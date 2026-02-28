@@ -5,7 +5,7 @@
 
     @if(session('product_add_message'))
         <div class="mb-4 border px-4 py-3 rounded relative" style="color: green;">
-            {{ session('product_add_message') }}
+            {{session('product_add_message')}}
         </div>
     @endif
     <div class="container-fluid">

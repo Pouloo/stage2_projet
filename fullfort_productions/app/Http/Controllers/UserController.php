@@ -6,31 +6,61 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 use App\Models\Product;
+use App\Models\Cart;
 
 class UserController extends Controller
 {
     public function index()
     {
         if (Auth::check() && Auth::user()->user_type=="user")
-        {
-            return view("dashboard");
-        }
+            return view('dashboard');
         else if (Auth::check() && Auth::user()->user_type=="admin")
-        {
-            return view("admin.dashboard");
-        }
+            return view('admin.dashboard');
     }
-    public function home()
+    
+    public function get_products_latest()
     {
+        if (Auth::check())
+            $count = Cart::where('user_id', Auth::id())->count();
+        else
+            $count = '';
+
+        $products = Product::latest()->take(2)->get();
+
+        return view('index', compact('products', 'count'));
+    }
+    public function get_products_all()
+    {
+        if (Auth::check())
+            $count = Cart::where('user_id', Auth::id())->count();
+        else
+            $count = '';
+
         $products = Product::all();
 
-        return view("index", compact("products"));
+        return view('products-all', compact('products', 'count'));
+    }
+    public function get_product_details($id)
+    {
+        if (Auth::check())
+            $count = Cart::where('user_id', Auth::id())->count();
+        else
+            $count = '';
+
+        $product = Product::findOrFail($id);
+
+        return view('product-details', compact('product', 'count'));
     }
 
-    public function get_product_details($id)
+    public function cart_add($id)
     {
         $product = Product::findOrFail($id);
 
-        return view("product-details", compact("product"));
+        $cart = new Cart();
+        $cart->user_id = Auth::id();
+        $cart->product_id = $product->id;
+
+        $cart->save();
+        return redirect()->back()->with('cart_add_message', 'Produit ajouté au panier!');
     }
 }

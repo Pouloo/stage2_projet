@@ -90,7 +90,7 @@ body {
 
 #navbarSupportedContent .navbar-nav .nav-link {
   padding: 5px 25px;
-  color: #514f4f;
+  color: #000000;
   text-align: center;
   text-transform: uppercase;
   border-radius: 5px;
@@ -234,8 +234,7 @@ a:focus {
 /*end header section*/
 .slider_section .slider_container {
   color: #fefefe;
-  background-color: #000000;
-  background-color: black;
+  background-color: orange;
   padding: 25px;
   border-radius: 0 0 15px 15px;
 }
@@ -258,6 +257,7 @@ a:focus {
 
 .slider_section .img-box img {
   width: 275px;
+  border-radius: 50px;
 }
 
 .slider_section .detail-box {

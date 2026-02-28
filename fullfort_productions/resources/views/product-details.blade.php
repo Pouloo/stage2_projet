@@ -1,44 +1,36 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Details Produit</title>        
-    </head>
-    <body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f5f5f5">
-        <div style="max-width: 1000px; margin: 5 auto; padding: 20px">
-            <a href="" style="display: inline-block; margin-bottom: 20px; color: #2a5885">Retour</a>
-            <div style="background-color: white; border-radius: 8px; overflow: hidden;">
-                <img src="" alt="">    
-                <div style="padding: 30px">
-                    <h1 style="margin: 0px 0px 15px; color: #333333"></h1>
-                    <div style="display: flex; align-items: center; margin-bottom: 20px;">
-                        <span style="font-size: 24px; font-weight: bold; color: #2a5885;">{{}}</span>
+@extends('design')
+
+<base href="/public">
+@section('product_details')
+
+    <div style="max-width: 1000px; margin: 5 auto; padding: 20px">
+        @if(session('cart_add_message'))
+            <div class="mb-4 border px-4 py-3 rounded relative" style="color: green;">
+                {{session('cart_add_message')}}
+            </div>
+        @endif
+        <div style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px 8px rgba(0,0,0,0.1) ;">
+            <div class="btn-box">
+                <a href="{{route('index')}}" style="margin-bottom: 20px; color: black; font-size: 25px; float: right; margin-right: 10px;">Retour</a>
+		    </div>
+            <img src="{{asset('product_img/'.$product->image)}}" style="width: 200px;">    
+            <div style="padding: 30px; height: 150px;">
+                <h1 style="margin: 0px 0px 15px; color: #333333">{{$product->name}}</h1>
+                <div style="display: flex; align-items: center; margin-bottom: 20px;">
+                    <span style="font-size: 24px; font-weight: bold; color: #2a5885;">{{$product->price}}€</span><br><br>
+                    @if ($product->quantity != 0)
+                        <span style="font-size: 24px; font-weight: bold; color: #2a5885; margin-left: 20px;">×{{$product->quantity}}</span>
                         <span style="margin-left: 15px; padding: 3px 8px; background-color: #4caf50; color: white;">En stock</span>
-                    </div>
+                    @else
+                        <span style="margin-left: 15px; padding: 3px 8px; background-color: #d92629; color: white;">En Rupture</span>
+                    @endif
                 </div>
             </div>
-            <div>
-                <h2 style="margin: 0px 0px 20px; color: #333333"></h2>
-                <div style="margin-bottom: 30px;">
-                    <h3 style="margin: 0px 0px 15px; font-size: 16px; color: #333333"></h1>
-                    <div style="border-bottom: 1px solid #eeeeee">
-                        <form>
-                            <div>
-                            </div>
-                            <div>
-                            </div>
-                            <button type="submit">
-                            </button>
-                        </form>
-                    </div>
-                    <div>
-                    </div>
-                    <div style="border-bottom: 1px solid #eeeeee; padding-bottom: 15px;">
-                        <h4> </h4>
-                        <p> </p>
-                        <small> </small>
-                    </div>
-                </div>
-            </div>
+            <p style="margin: 0 30px;">{{$product->description}}</p>
+            @if ($product->quantity != 0)
+                <a href="{{route('cart.add', $product->id)}}" style="background-color: #2a5885; color: white; border: none; padding: 12px 25px; margin: 10px 30px; font-size: 16px; border-radius: 4px; cursor: pointer; float: left;">Ajouter au Panier</a>
+            @endif
         </div>
-    </body>
-</html>
+    </div>
+
+@endsection

@@ -5,15 +5,20 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [UserController::class, 'home'])->name('index');
+Route::get('/', [UserController::class, 'get_products_latest'])->name('index');
 
 Route::get('/dashboard', [UserController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/product-details/{id}', [UserController::class, 'get_product_details'])->name('product.details');
+Route::get('/products-all', [UserController::class, 'get_products_all'])->name('products.all');
 
 Route::middleware('auth')->group(function ()
 {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    
+    Route::get('/cart-add/{id}', [UserController::class, 'cart_add'])->name('cart.add');
 });
 
 Route::middleware('admin')->group(function ()
@@ -37,8 +42,6 @@ Route::middleware('admin')->group(function ()
 
     Route::get('/update-product/{id}', [AdminController::class, 'update_product'])->name('admin.update.product');
     Route::post('/update-product/{id}', [AdminController::class, 'post_update_product'])->name('admin.post.update.product');
-
-    Route::get('/product-details/{id}', [UserController::class, 'get_product_details'])->name('product.details');
 });
 
 require __DIR__.'/auth.php';
