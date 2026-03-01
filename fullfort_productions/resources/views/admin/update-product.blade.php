@@ -4,7 +4,7 @@
 @section('update_product')
 
     @if(session('product_update_message'))
-        <div class="mb-4 border px-4 py-3 rounded relative" style="color: turquoise;">
+        <div class="mb-4 border px-4 py-3 rounded relative" style="padding: 10px; background-color: green; color: white;">
             {{ session('product_update_message') }}
         </div>
     @endif
@@ -24,7 +24,7 @@
                     <option value="{{$category->name}}">{{$category->name}}</option>
                 @endforeach
             </select><br><br>
-            <input type="submit" name="submit" value="Modifier Produit" style="height: 50px; color: green; font-weight: bold">
+            <input type="submit" name="submit" value="Modifier Produit" style="height: 50px; padding: 10px; background-color: turquoise; color: white;">
         </form>
     </div>
 

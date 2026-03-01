@@ -4,7 +4,7 @@
 @section('show_category')
 
     @if(session('category_del_message'))
-        <div class="mb-4 border px-4 py-3 rounded relative" style="color: orangered;">
+        <div class="mb-4 border px-4 py-3 rounded relative" style="padding: 10px; background-color: green; color: white;">
             {{session('category_del_message')}}
         </div>
     @endif
@@ -24,8 +24,8 @@
                     <td style="padding: 12px;">{{$category->id}}</td>
                     <td style="padding: 12px;">{{$category->name}}</td>
                     <td style="padding: 12px;">
-                        <a href="{{route('admin.update.category', $category->id)}}" style="color: turquoise;">Modifier</a>
-                        <a href="{{route('admin.delete.category', $category->id)}}" onclick="return confirm('Veuillez confirmer la suppression.')" style="color: orangered;">Supprimer</a>
+                        <a href="{{route('admin.update.category', $category->id)}}" style="width: 100px; padding: 10px; background-color: turquoise; color: white;">Modifier</a>
+                        <a href="{{route('admin.delete.category', $category->id)}}" onclick="return confirm('Veuillez confirmer la suppression.')" style="width: 100px; padding: 10px; background-color: red; color: white;">Supprimer</a>
                     </td>
                 </tr>
             @endforeach

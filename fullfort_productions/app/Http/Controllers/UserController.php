@@ -20,10 +20,7 @@ class UserController extends Controller
     
     public function get_products_latest()
     {
-        if (Auth::check())
-            $count = Cart::where('user_id', Auth::id())->count();
-        else
-            $count = '';
+        $count = Cart::where('user_id', Auth::id())->count();
 
         $products = Product::latest()->take(2)->get();
 
@@ -31,10 +28,7 @@ class UserController extends Controller
     }
     public function get_products_all()
     {
-        if (Auth::check())
-            $count = Cart::where('user_id', Auth::id())->count();
-        else
-            $count = '';
+        $count = Cart::where('user_id', Auth::id())->count();
 
         $products = Product::all();
 
@@ -42,10 +36,7 @@ class UserController extends Controller
     }
     public function get_product_details($id)
     {
-        if (Auth::check())
-            $count = Cart::where('user_id', Auth::id())->count();
-        else
-            $count = '';
+        $count = Cart::where('user_id', Auth::id())->count();
 
         $product = Product::findOrFail($id);
 
@@ -62,5 +53,19 @@ class UserController extends Controller
 
         $cart->save();
         return redirect()->back()->with('cart_add_message', 'Produit ajouté au panier!');
+    }
+    public function cart_get_products()
+    {
+        $count = Cart::where('user_id', Auth::id())->count();
+        $cart = Cart::where('user_id', Auth::id())->get();
+
+        return view('cart-products', compact('count', 'cart'));
+    }
+    public function cart_delete_product($id)
+    {
+        $cart = Cart::findOrFail($id);
+        $cart->delete();
+
+        return redirect()->back();
     }
 }

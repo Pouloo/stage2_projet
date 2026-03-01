@@ -19,6 +19,8 @@ Route::middleware('auth')->group(function ()
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     
     Route::get('/cart-add/{id}', [UserController::class, 'cart_add'])->name('cart.add');
+    Route::get('/cart-products', [UserController::class, 'cart_get_products'])->name('cart.products');
+    Route::get('/cart-delete-product/{id}', [UserController::class, 'cart_delete_product'])->name('cart.delete.product');
 });
 
 Route::middleware('admin')->group(function ()

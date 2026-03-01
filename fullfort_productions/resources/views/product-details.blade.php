@@ -5,10 +5,11 @@
 
     <div style="max-width: 1000px; margin: 5 auto; padding: 20px">
         @if(session('cart_add_message'))
-            <div class="mb-4 border px-4 py-3 rounded relative" style="color: green;">
+            <div class="mb-4 border px-4 py-3 rounded relative" style="padding: 10px; background-color: green; color: white;">
                 {{session('cart_add_message')}}
             </div>
         @endif
+
         <div style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px 8px rgba(0,0,0,0.1) ;">
             <div class="btn-box">
                 <a href="{{route('index')}}" style="margin-bottom: 20px; color: black; font-size: 25px; float: right; margin-right: 10px;">Retour</a>

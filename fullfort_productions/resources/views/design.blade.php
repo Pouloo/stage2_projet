@@ -64,10 +64,13 @@
                                     <i class="fa fa-user" aria-hidden="true"></i>
                                     <span>Tableau de Bord</span>
                                 </a>
-                                <!-- <a href="route('logout')">
-                                    <i class="fa fa-user" aria-hidden="true"></i>
-                                    <span>Déconnexion</span>
-                                </a> -->
+                                <form method="POST" action="{{route('logout')}}">
+                                    @csrf
+                                    <a href="route('logout')" onclick="event.preventDefault();this.closest('form').submit();">
+                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                        <span>Déconnexion</span>
+                                    </a>
+                                </form>
                             @else
                                 <a href="{{route('login')}}">
                                     <i class="fa fa-user" aria-hidden="true"></i>
@@ -78,8 +81,10 @@
                                     <span>Inscription</span>
                                 </a>
                             @endif
-                            <a href="">
-                                <i class="fa fa-shopping-bag" aria-hidden="true">{{$count}}</i>
+                            <a href="{{route('cart.products')}}">
+                                @if (Auth::check())
+                                    <i class="fa fa-shopping-bag" aria-hidden="true">&nbsp;{{$count}}</i>
+                                @endif
                             </a>
                             <form class="form-inline ">
                                 <button class="btn nav_search-btn" type="submit">
@@ -130,6 +135,8 @@
             @yield('product_details')
 
             @yield('products_all')
+
+            @yield('cart_products')
 
         </section>
 
