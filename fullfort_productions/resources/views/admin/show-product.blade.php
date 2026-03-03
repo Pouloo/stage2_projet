@@ -9,7 +9,6 @@
         </div>
     @endif
 
-
     <table style="width: 100%; font-family: Arial, sans-serif; border-collapse: collapse;">
         <thead>
             <tr style="background-color: #f2f2f2;">

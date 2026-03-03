@@ -41,23 +41,6 @@
                         <span class=""></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent" style="background-color: rgb(219, 69, 102);">
-                        <!-- <ul class="navbar-nav  ">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="shop.html">Shop</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="why.html">Why Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="testimonial.html">Testimonial</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact Us</a>
-                        </li>
-                        </ul> -->
                         <div class="user_option">
                             @if (Auth::check())
                                 <a href="{{route('dashboard')}}">
