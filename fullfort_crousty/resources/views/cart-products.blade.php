@@ -3,13 +3,13 @@
 <base href="/public">
 @section('cart_products')
 
-    <div style="width: 50%; margin: auto; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px 8px rgba(0,0,0,0.1) ;">
+    <div style="width: 75%; margin: auto; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px 8px rgba(0,0,0,0.1) ;">
         <h1 style="text-align: center;">Votre Panier</h1><br>
         <div class="btn-box" style="margin-top: 0;">
             <a href="{{route('index')}}" style="margin-bottom: 20px; color: black; font-size: 25px; float: right; margin-right: 10px;">Retour</a>
         </div>
         @if ($count != 0)
-            <table style="width: 40%; height: 40%; margin: auto; font-family: Arial, sans-serif; border-collapse: collapse;">
+            <table style="width: 100%; font-family: Arial, sans-serif;">
                 <thead>
                     <tr style="background-color: #f2f2f2;">
                         <th style="padding: 12px; text-align: left; border: 1px solid #dddddd;">Nom Produit</th>

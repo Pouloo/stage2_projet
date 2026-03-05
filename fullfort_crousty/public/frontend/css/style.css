@@ -256,7 +256,7 @@ a:focus {
 }
 
 .slider_section .img-box img {
-  width: 275px;
+  width: 100%;
   border-radius: 50px;
 }
 

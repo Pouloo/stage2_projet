@@ -31,7 +31,7 @@
 
     <body>
     <!-- Header Section Strats -->
-        <div class="hero_area">
+        <div class="hero_area" style="padding: 0; width: 95%; margin: auto;">
             <header class="header_section">
                 <nav class="navbar navbar-expand-lg custom_nav-container">
                     <a class="navbar-brand" href="">
@@ -47,7 +47,7 @@
                                     <i class="fa fa-user" aria-hidden="true"></i>
                                     <span>Tableau de Bord</span>
                                 </a>
-                                <form method="POST" action="{{route('logout')}}">
+                                <form method="POST" action="{{route('logout')}}" style="margin-bottom: 0;">
                                     @csrf
                                     <a href="route('logout')" onclick="event.preventDefault();this.closest('form').submit();">
                                         <i class="fa fa-user" aria-hidden="true"></i>
@@ -64,12 +64,12 @@
                                     <span>Inscription</span>
                                 </a>
                             @endif
-                            <a href="{{route('cart.products')}}">
-                                @if (Auth::check())
+                            @if (Auth::check())
+                                <a href="{{route('cart.products')}}">
                                     <i class="fa fa-shopping-bag" aria-hidden="true">&nbsp;{{$count}}</i>
-                                @endif
-                            </a>
-                            <form class="form-inline ">
+                                </a>
+                            @endif
+                            <form class="form-inline" style="margin-bottom: 0;">
                                 <button class="btn nav_search-btn" type="submit">
                                     <i class="fa fa-search" aria-hidden="true"></i>
                                 </button>
@@ -82,7 +82,7 @@
 
     <!-- Slider Section -->
     
-        <section class="slider_section">
+        <section class="slider_section" style="width: 95%; margin: auto;">
             <div class="slider_container">
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
@@ -98,7 +98,7 @@
                                     </div>
                                     <div class="col-md-5 ">
                                         <div class="img-box">
-                                            <img style="width:600px" src="frontend/images/crousty.webp" alt="" />
+                                            <img src="frontend/images/crousty.webp" alt="" />
                                         </div>
                                     </div>
                                 </div>
