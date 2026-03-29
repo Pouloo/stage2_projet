@@ -2,14 +2,6 @@
 <title>Connexion</title>
 
 <x-guest-layout>
-    <x-auth-card>
-        <!-- Logo -->
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500">
-            </a>
-        </x-slot>
-
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
 
@@ -54,6 +46,5 @@
                     {{ __('Se Connecter') }}
                 </x-primary-button>
             </div>
-        </x-auth-card>
     </form>
 </x-guest-layout>
