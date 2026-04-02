@@ -23,7 +23,7 @@
                     @php
                         $price = 0;
                     @endphp
-                    @foreach($cart as $cart_product)
+                    @foreach($cart_products as $cart_product)
                         <tr style="border-bottom: 1px solid #dddddd;">
                             <td style="padding: 12px;">{{$cart_product->product->name}}</td>
                             <td style="padding: 12px;">{{Str::limit($cart_product->product->description, 50, " ...")}}</td>
@@ -42,6 +42,11 @@
                     </tr>
                 </tbody>
             </table>
+            <form action="{{route(commande.confirm)}}" method="post" style="margin-top: 10px;">
+                <input type="text" name="client_address" id="" placeholder="Votre Adresse" required><br><br>
+                <input type="text" name="client_phone" id="" placeholder="Votre Numéro de Téléphone" required><br><br>
+                <input class="btn btn-primary" type="submit" value="Valider Commande">
+            </form>
         @else
             <h4 style="margin: 50px; text-align: center;">Votre panier est vide.</h4><br>
         @endif
