@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Product;
 use App\Models\CartProduct;
+use App\Models\Commande;
 
 class UserController extends Controller
 {
@@ -69,6 +70,16 @@ class UserController extends Controller
     }
     public function confirm_commande(Request $request)
     {
-
+        $cart_products = CartProduct::where('user_id', Auth::id())->get();
+        
+        foreach ($cart_products as $cart_product)
+        {
+            $commande = New Commande();
+            $commande->client_address = $request->client_adress;
+            $commande->client_phone = $request->client_phone;
+            $commande->user_id = Auth::id();
+            $commande->product_id = $cart_product->product_id;
+            $commande->save();
+        }
     }
 }

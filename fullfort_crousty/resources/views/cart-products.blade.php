@@ -42,7 +42,7 @@
                     </tr>
                 </tbody>
             </table>
-            <form action="{{route(commande.confirm)}}" method="post" style="margin-top: 10px;">
+            <form action="{{route(commande.confirm)}}" method="POST" style="margin-top: 10px;">
                 <input type="text" name="client_address" id="" placeholder="Votre Adresse" required><br><br>
                 <input type="text" name="client_phone" id="" placeholder="Votre Numéro de Téléphone" required><br><br>
                 <input class="btn btn-primary" type="submit" value="Valider Commande">
