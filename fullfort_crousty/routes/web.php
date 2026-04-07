@@ -21,7 +21,7 @@ Route::middleware('auth')->group(function ()
     Route::get('/cart-add-product/{id}', [UserController::class, 'cart_add_product'])->name('cart.add.product');
     Route::get('/cart-products', [UserController::class, 'cart_get_products'])->name('cart.products');
     Route::get('/cart-delete-product/{id}', [UserController::class, 'cart_delete_product'])->name('cart.delete.product');
-    Route::get('/commande-confirm', [UserController::class, 'confirm_commande'])->name('commande.confirm');
+    Route::post('/order-confirm', [UserController::class, 'confirm_order'])->name('order.confirm');
 });
 
 Route::middleware('admin')->group(function ()

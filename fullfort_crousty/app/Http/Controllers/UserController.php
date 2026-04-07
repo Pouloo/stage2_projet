@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Product;
 use App\Models\CartProduct;
-use App\Models\Commande;
+use App\Models\OrderProduct;
 
 class UserController extends Controller
 {
@@ -68,18 +68,26 @@ class UserController extends Controller
 
         return redirect()->back();
     }
-    public function confirm_commande(Request $request)
+    public function confirm_order(Request $request)
     {
         $cart_products = CartProduct::where('user_id', Auth::id())->get();
         
         foreach ($cart_products as $cart_product)
         {
-            $commande = New Commande();
-            $commande->client_address = $request->client_adress;
-            $commande->client_phone = $request->client_phone;
-            $commande->user_id = Auth::id();
-            $commande->product_id = $cart_product->product_id;
-            $commande->save();
+            $order_product = New OrderProduct();
+            $order_product->client_address = $request->client_address;
+            $order_product->client_phone = $request->client_phone;
+            $order_product->user_id = Auth::id();
+            $order_product->product_id = $cart_product->product_id;
+            $order_product->save();
         }
+
+        $cart_products = CartProduct::where('user_id', Auth::id());
+        foreach ($cart_products as $cart_product)
+        {
+            $cart_product = CartProduct::findOrFail($cart_product->id);
+            $cart_product->delete();
+        }
+        return redirect()->back()->with('order_confirm_message', 'Commande Validée');
     }
 }
