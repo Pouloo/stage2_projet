@@ -8,6 +8,11 @@
     <div class="btn-box" style="margin-top: 0;">
         <a href="{{route('index')}}" style="margin-bottom: 20px; color: black; font-size: 25px; float: right; margin-right: 10px;">Retour</a>
         </div>
+        @if(session('order_confirm_message'))
+                <div class="mb-4 border px-4 py-3 rounded relative" style="padding: 10px; background-color: green; color: white;">
+                    {{ session('order_confirm_message') }}
+                </div>
+        @endif
         @if ($count != 0)
             <table style="width: 100%; font-family: Arial, sans-serif;">
                 <thead>
@@ -42,11 +47,6 @@
                     </tr>
                 </tbody>
             </table>
-            @if(session('order_confirm_message'))
-                <div class="mb-4 border px-4 py-3 rounded relative" style="padding: 10px; background-color: green; color: white;">
-                    {{ session('order_confirm_message') }}
-                </div>
-            @endif
             <form action="{{route('order.confirm')}}" method="POST" style="margin-top: 10px;">
                 @csrf
                 <input type="text" name="client_address" id="" placeholder="Votre Adresse" required><br><br>

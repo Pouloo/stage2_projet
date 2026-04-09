@@ -82,11 +82,11 @@ class UserController extends Controller
             $order_product->save();
         }
 
-        $cart_products = CartProduct::where('user_id', Auth::id());
+        $cart_products = CartProduct::where('user_id', Auth::id())->get();
         foreach ($cart_products as $cart_product)
         {
-            $cart_product = CartProduct::findOrFail($cart_product->id);
-            $cart_product->delete();
+            $cart_product_del = CartProduct::findOrFail($cart_product->id);
+            $cart_product_del->delete();
         }
         return redirect()->back()->with('order_confirm_message', 'Commande Validée');
     }
