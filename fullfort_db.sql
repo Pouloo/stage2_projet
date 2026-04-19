@@ -2,12 +2,10 @@
 CREATE TABLE User
 (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    username TEXT UNIQUE NOT NULL,
-    login TEXT UNIQUE NOT NULL,
+    name TEXT UNIQUE NOT NULL,
+    email TEXT UNIQUE NOT NULL,
     mdp TEXT UNIQUE NOT NULL,
-    is_admin BIT,
-    id_compte INT,
-    id_admin INT
+    type_user TEXT UNIQUE NOT NULL,
 );
 CREATE TABLE Compte
 (

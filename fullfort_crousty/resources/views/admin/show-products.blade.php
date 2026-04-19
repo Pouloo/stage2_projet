@@ -1,7 +1,7 @@
 @extends('admin.design')
 
 <base href="/public">
-@section('show_product')
+@section('show_products')
 
     @if(session('product_del_message'))
         <div class="mb-4 border px-4 py-3 rounded relative" style="padding: 10px; background-color: green; color: white;">

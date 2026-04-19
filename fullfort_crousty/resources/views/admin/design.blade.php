@@ -91,14 +91,18 @@
 					<li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Catégories</a>
 						<ul id="exampledropdownDropdown" class="collapse list-unstyled ">
 							<li><a href="{{route('admin.add.category')}}">Ajouter Catégorie</a></li>
-							<li><a href="{{route('admin.show.category')}}">Afficher Catégories</a></li>
+							<li><a href="{{route('admin.show.categories')}}">Afficher Catégories</a></li>
 						</ul>
 					</li>
 					<li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Produits</a>
 						<ul id="exampledropdownDropdown" class="collapse list-unstyled ">
 							<li><a href="{{route('admin.add.product')}}">Ajouter Produit</a></li>
-							<li><a href="{{route('admin.show.product')}}">Afficher Produits</a></li>
-							<li><a href="#">Afficher Commande</a></li>
+							<li><a href="{{route('admin.show.products')}}">Afficher Produits</a></li>
+						</ul>
+					</li>
+					<li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Commandes</a>
+						<ul id="exampledropdownDropdown" class="collapse list-unstyled ">
+							<li><a href="{{route('admin.show.orders')}}">Afficher Commandes</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -116,15 +120,17 @@
 
 					@yield('add_category')
 
-					@yield('show_category')
+					@yield('show_categories')
 
 					@yield('update_category')
 
 					@yield('add_product')
 
-					@yield('show_product')
+					@yield('show_products')
 
 					@yield('update_product')
+
+					@yield('show_orders')
 
 				</section>
 

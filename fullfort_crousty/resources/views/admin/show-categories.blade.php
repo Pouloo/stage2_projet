@@ -1,7 +1,7 @@
 @extends('admin.design')
 
 <base href="/public">
-@section('show_category')
+@section('show_categories')
 
     @if(session('category_del_message'))
         <div class="mb-4 border px-4 py-3 rounded relative" style="padding: 10px; background-color: green; color: white;">

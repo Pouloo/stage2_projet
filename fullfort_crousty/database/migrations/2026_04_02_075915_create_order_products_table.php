@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('client_address');
             $table->string('client_phone');
+            $table->string('status')->default('pending');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('product_id');
 

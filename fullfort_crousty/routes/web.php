@@ -29,7 +29,7 @@ Route::middleware('admin')->group(function ()
     Route::get('/add-category', [AdminController::class, 'add_category'])->name('admin.add.category');
     Route::post('/add-category', [AdminController::class, 'post_add_category'])->name('admin.post.add.category');
 
-    Route::get('/show-category', [AdminController::class, 'show_category'])->name('admin.show.category');
+    Route::get('/show-categories', [AdminController::class, 'show_categories'])->name('admin.show.categories');
 
     Route::get('/delete-category/{id}', [AdminController::class, 'delete_category'])->name('admin.delete.category');
 
@@ -39,12 +39,15 @@ Route::middleware('admin')->group(function ()
     Route::get('/add-product', [AdminController::class, 'add_product'])->name('admin.add.product');
     Route::post('/add-product', [AdminController::class, 'post_add_product'])->name('admin.post.add.product');
 
-    Route::get('/show-product', [AdminController::class, 'show_product'])->name('admin.show.product');
+    Route::get('/show-products', [AdminController::class, 'show_products'])->name('admin.show.products');
 
     Route::get('/delete-product/{id}', [AdminController::class, 'delete_product'])->name('admin.delete.product');
 
     Route::get('/update-product/{id}', [AdminController::class, 'update_product'])->name('admin.update.product');
     Route::post('/update-product/{id}', [AdminController::class, 'post_update_product'])->name('admin.post.update.product');
+
+    Route::get('/show-orders', [AdminController::class, 'show_orders'])->name('admin.show.orders');
+    Route::post('/order-status/{id}', [AdminController::class, 'change_order_status'])->name('admin.order.status');
 });
 
 require __DIR__.'/auth.php';

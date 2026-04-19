@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\OrderProduct;
 use App\Models\Product;
 
 class AdminController extends Controller
@@ -21,11 +22,11 @@ class AdminController extends Controller
 
         return redirect()->back()->with('category_add_message', 'Catégorie ajoutée avec succès!');
     }
-    public function show_category()
+    public function show_categories()
     {
         $categories = Category::all();
 
-        return view('admin.show-category', compact('categories'));
+        return view('admin.show-categories', compact('categories'));
     }
     public function delete_category($id)
     {
@@ -79,11 +80,11 @@ class AdminController extends Controller
 
         return redirect()->back()->with('product_add_message', 'Produit ajouté avec succès!');
     }
-    public function show_product(Request $request)
+    public function show_products(Request $request)
     {
         $products = Product::paginate(5);
 
-        return view('admin.show-product', compact('products'));
+        return view('admin.show-products', compact('products'));
     }
     public function delete_product($id)
     {
@@ -127,5 +128,18 @@ class AdminController extends Controller
             $request->product_image->move('product_img', $imagename);
 
         return redirect()->back()->with('product_update_message', 'Produit modifié avec succès!');
+    }
+    public function show_orders()
+    {
+        $order_products = OrderProduct::paginate(5);
+
+        return view('admin.show-orders', compact('order_products'));
+    }
+    public function change_order_status(Request $request, $id)
+    {
+        $order_product = OrderProduct::findOrFail($id);
+        $order_product->status = $request->status;
+        $order_product->save();
+        return redirect()->back();
     }
 }
