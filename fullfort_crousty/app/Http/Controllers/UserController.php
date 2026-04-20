@@ -21,7 +21,6 @@ class UserController extends Controller
     public function get_products_latest()
     {
         $count = CartProduct::where('user_id', Auth::id())->count();
-
         $products = Product::latest()->take(2)->get();
 
         return view('index', compact('products', 'count'));
@@ -29,7 +28,6 @@ class UserController extends Controller
     public function get_products_all()
     {
         $count = CartProduct::where('user_id', Auth::id())->count();
-
         $products = Product::all();
 
         return view('products-all', compact('products', 'count'));
@@ -46,7 +44,6 @@ class UserController extends Controller
     public function cart_add_product($id)
     {
         $product = Product::findOrFail($id);
-
         $cart_product = new CartProduct();
         $cart_product->user_id = Auth::id();
         $cart_product->product_id = $product->id;
@@ -89,5 +86,11 @@ class UserController extends Controller
             $cart_product_del->delete();
         }
         return redirect()->back()->with('order_confirm_message', 'Commande Validée');
+    }
+    public function show_user_orders()
+    {
+        $order_products = OrderProduct::where('user_id', Auth::id())->get();
+
+        return view('show-orders', compact('order_products'));
     }
 }

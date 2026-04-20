@@ -16,7 +16,6 @@ class AdminController extends Controller
     public function post_add_category(Request $request)
     {
         $category = new Category();
-
         $category->name = $request->category_name;
         $category->save();
 
@@ -31,8 +30,8 @@ class AdminController extends Controller
     public function delete_category($id)
     {
         $category = Category::findOrFail($id);
-
         $category->delete();
+
         return redirect()->back()->with('category_del_message', 'Catégorie supprimée avec succès!');
     }
     public function update_category($id)
@@ -44,22 +43,21 @@ class AdminController extends Controller
     public function post_update_category(Request $request, $id)
     {
         $category = Category::findOrFail($id);
-
         $category->name = $request->category_name;
-
         $category->save();
+
         return redirect()->back()->with('category_update_message', 'Catégorie modifiée avec succès!');
     }
 
     public function add_product(Request $request)
     {
         $categories = Category::all();
+
         return view('admin.add-product', compact('categories'));
     }
     public function post_add_product(Request $request)
     {
         $product = new Product();
-
         $product->name = $request->product_name;
         $product->description = $request->product_description;
         $product->price = $request->product_price;
@@ -108,7 +106,6 @@ class AdminController extends Controller
     public function post_update_product(Request $request, $id)
     {
         $product = Product::findOrFail($id);
-
         $product->name = $request->product_name;
         $product->description = $request->product_description;
         $product->price = $request->product_price;
@@ -140,6 +137,7 @@ class AdminController extends Controller
         $order_product = OrderProduct::findOrFail($id);
         $order_product->status = $request->status;
         $order_product->save();
+
         return redirect()->back();
     }
 }

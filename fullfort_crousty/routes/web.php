@@ -12,6 +12,8 @@ Route::get('/dashboard', [UserController::class, 'index'])->middleware(['auth', 
 Route::get('/product-details/{id}', [UserController::class, 'get_product_details'])->name('product.details');
 Route::get('/products-all', [UserController::class, 'get_products_all'])->name('products.all');
 
+Route::get('/show-ordered', [UserController::class, 'show_user_orders'])->middleware(['auth', 'verified'])->name('user.show.orders');
+
 Route::middleware('auth')->group(function ()
 {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
