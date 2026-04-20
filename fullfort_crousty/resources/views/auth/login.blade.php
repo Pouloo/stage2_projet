@@ -1,4 +1,4 @@
-<link rel="shortcut icon" href="frontend/images/favicon.png" type="image/x-icon">
+<link rel="shortcut icon" href="frontend/images/favicon2.png" type="image/x-icon">
 <title>Connexion</title>
 
 <x-guest-layout>
@@ -10,14 +10,14 @@
 
             <!-- Email Address -->
             <div>
-                <x-input-label for="email" :value="__('Email')" />
+                <x-input-label for="email" :value="__('Email')"/>
                 <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
             </div>
 
             <!-- Password -->
             <div class="mt-4">
-                <x-input-label for="password" :value="__('Mot De Passe')" />
+                <x-input-label for="password" :value="__('Mot De Passe')"/>
 
                 <x-text-input id="password" class="block mt-1 w-full"
                                 type="password"
