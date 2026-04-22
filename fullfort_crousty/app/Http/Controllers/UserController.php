@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 use App\Models\Product;
 use App\Models\CartProduct;
 use App\Models\OrderProduct;
@@ -12,10 +13,15 @@ class UserController extends Controller
 {
     public function index()
     {
+        $product_count = Product::count();
+        $user_count = User::where('user_type', 'user')->count();
+        $ordered_products_count = OrderProduct::where('status', 'pending')->count();
+        $delivered_products_count = OrderProduct::where('status', 'delivered')->count();
+
         if (Auth::check() && Auth::user()->user_type=="user")
             return view('dashboard');
         else if (Auth::check() && Auth::user()->user_type=="admin")
-            return view('admin.dashboard');
+            return view('admin.dashboard', compact('product_count', 'user_count', 'ordered_products_count', 'delivered_products_count'));
     }
     
     public function get_products_latest()

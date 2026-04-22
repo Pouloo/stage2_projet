@@ -88,7 +88,7 @@
 			 	<!-- <span class="heading">Main</span> -->
 				<ul class="list-unstyled">
 					<li class="active"><a href="/dashboard"> <i class="icon-home"></i>Vue D'ensemble</a></li>
-					<li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Catégories</a>
+					<li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-writing-whiteboard"></i>Catégories</a>
 						<ul id="exampledropdownDropdown" class="collapse list-unstyled ">
 							<li><a href="{{route('admin.add.category')}}">Ajouter Catégorie</a></li>
 							<li><a href="{{route('admin.show.categories')}}">Afficher Catégories</a></li>
