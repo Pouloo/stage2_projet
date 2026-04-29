@@ -53,8 +53,6 @@
 						<div class="brand-text brand-sm"><strong class="text-primary">D</strong><strong>A</strong></div>
 					</a> -->
 
-				<!-- Sidebar Toggle Btn-->
-					<button class="sidebar-toggle"><i class="fa fa-long-arrow-left"></i></button>
 				</div>
 				<div class="right-menu list-inline no-margin-bottom">    
 					<div class="list-inline-item logout">
