@@ -14,6 +14,7 @@ class AdminMiddleware
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
+    // Middleware Administratif: regroupe les 
     public function handle(Request $request, Closure $next)
     {
         if (Auth::check() && Auth::user()->user_type == "admin")

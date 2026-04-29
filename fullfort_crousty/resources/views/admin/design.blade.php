@@ -16,7 +16,7 @@
 	<!-- Font Awesome CSS-->
 		<link rel="stylesheet" href="admin/vendor/font-awesome/css/font-awesome.min.css">
 
-	<!-- Custom Font Icons CSS-->
+	<!-- Custom -->
 		<link rel="stylesheet" href="admin/css/font.css">
 
 	<!-- Google Fonts\Muli-->

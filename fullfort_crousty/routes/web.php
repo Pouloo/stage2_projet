@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
+// Routes Clientes
 Route::get('/', [UserController::class, 'get_products_latest'])->name('index');
 
 Route::get('/dashboard', [UserController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
@@ -14,18 +15,21 @@ Route::get('/products-all', [UserController::class, 'get_products_all'])->name('
 
 Route::get('/show-ordered', [UserController::class, 'show_user_orders'])->middleware(['auth', 'verified'])->name('user.show.orders');
 
+// Middleware d'Authentification (Laravel Breeze): Toute route contenue dans le scope de ce middleware requiert que l'utilisateur soit authentifié pour y accéder
 Route::middleware('auth')->group(function ()
 {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     
+    // Routes Panier: ...
     Route::get('/cart-add-product/{id}', [UserController::class, 'cart_add_product'])->name('cart.add.product');
     Route::get('/cart-products', [UserController::class, 'cart_get_products'])->name('cart.products');
     Route::get('/cart-delete-product/{id}', [UserController::class, 'cart_delete_product'])->name('cart.delete.product');
     Route::post('/order-confirm', [UserController::class, 'confirm_order'])->name('order.confirm');
 });
 
+// Middleware Administratif
 Route::middleware('admin')->group(function ()
 {
     Route::get('/add-category', [AdminController::class, 'add_category'])->name('admin.add.category');

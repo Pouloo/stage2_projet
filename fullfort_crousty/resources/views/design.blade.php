@@ -3,26 +3,20 @@
     <head>
         <title>Fullfort Crousty</title>
         
-    <!-- Basic Metas -->
+    <!-- Metadonnées de Base -->
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <!-- Mobile Metas -->
+    <!-- Metadonnées pour supports Mobile -->
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <!-- Site Metas -->
-        <meta name="keywords" content="" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
+    <!-- Favicon -->
         <link rel="shortcut icon" href="frontend/images/favicon.png" type="image/x-icon">
 
-    <!-- Slider Stylesheet -->
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-
-    <!-- Bootstrap Core CSS -->
+    <!-- Liaison CSS Bootstrap -->
         <link rel="stylesheet" type="text/css" href="frontend/css/bootstrap.css" />
 
-    <!-- Custom styles for this template -->
+    <!-- Style Custom -->
         <link href="frontend/css/style.css" rel="stylesheet" />
 
     <!-- Responsive Style -->
@@ -30,7 +24,7 @@
     </head>
 
     <body>
-    <!-- Header Section Strats -->
+    <!-- Section Header -->
         <div class="hero_area" style="padding: 0; width: 95%; margin: auto;">
             <header class="header_section">
                 <nav class="navbar navbar-expand-lg custom_nav-container">
