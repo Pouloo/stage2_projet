@@ -1,3 +1,4 @@
+<!-- Design Principal (User): Toutes les vues utilisatrices heritent cette template -->
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,10 +17,10 @@
     <!-- Liaison CSS Bootstrap -->
         <link rel="stylesheet" type="text/css" href="frontend/css/bootstrap.css" />
 
-    <!-- Style Custom -->
+    <!-- CSS Sur Mesure/Custom -->
         <link href="frontend/css/style.css" rel="stylesheet" />
 
-    <!-- Responsive Style -->
+    <!-- CSS Responsive -->
         <link href="frontend/css/responsive.css" rel="stylesheet" />
     </head>
 
@@ -69,7 +70,7 @@
             </header>
         </div>
 
-    <!-- Slider Section -->
+    <!-- Section Slider -->
     
         <section class="slider_section" style="width: 95%; margin: auto;">
             <div class="slider_container">
@@ -78,10 +79,10 @@
                         <div class="carousel-item active">
                             <div class="container-fluid">
                                 <div class="row">
-                                    <div class="col-md-7">
+                                    <div class="col-md-7" width=30%>
                                         <div class="detail-box"> 
                                             <h1>Bienvenue</h1>
-                                            <p>Sequi perspiciatis nulla reiciendis, rem, tenetur impedit, eveniet non necessitatibus error distinctio mollitia suscipit. Nostrum fugit doloribus consequatur distinctio esse, possimus maiores aliquid repellat beatae cum, perspiciatis enim, accusantium perferendis.</p>
+                                            <p>Chez <b><i>Fullfort Crousty</i></b>, nous vous proposons le meilleur du fast food. Préparés avec des produits frais et dans le respect des saveurs authentiques, <b>nos crousty, burgers et plats à base de poulet</b> sont tous disponibles <b>à la commande</b>. Notre mission est simple : vous faire gouter à des saveurs inoubliables, à un prix <b>imbattable.</b></p>
                                             <a href="">Nous Contacter</a>
                                         </div>
                                     </div>
@@ -98,8 +99,8 @@
             </div>
         </section>
 
-    <!-- Shop Section -->
-
+    <!-- Section d'heritage -->
+    <!-- Toutes les sections/vues auxquelles le design est lègué -->
         <section class="shop_section layout_padding">
 
             @yield('index')
@@ -110,9 +111,11 @@
 
             @yield('cart_products')
 
+            @yield('payment')
+
         </section>
 
-    <!-- Contact Section -->
+    <!-- Section Contact -->
 
         <section class="contact_section ">
             <div class="container px-0">
@@ -154,7 +157,7 @@
 
         <br><br><br>
 
-    <!-- Info Section -->
+    <!-- Section Infos -->
 
         <section class="info_section  layout_padding2-top">
             <div class="social_container">
@@ -178,7 +181,7 @@
                     <div class="row">
                         <div class="col-md-6 col-lg-3">
                             <h6>À PROPOS DE NOUS</h6>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet,</p>
+                            <p>Fullfort crousty Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet,</p>
                         </div>
                         <div class="col-md-6 col-lg-3">
                             <div class="info_form ">
@@ -214,7 +217,7 @@
                 </div>
             </div>
 
-        <!-- Footer Section -->
+        <!-- Footer -->
             <footer class=" footer_section">
                 <div class="container">
                     <p>
@@ -225,10 +228,64 @@
         </section>
 
         
-    <!-- JavaScript Files/Scripts -->
+    <!-- Fichiers/Sripts Javascript -->
         <script src="frontend/js/jquery-3.4.1.min.js"></script>
         <script src="frontend/js/bootstrap.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
         <script src="frontend/js/custom.js"></script>
+        <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+        <script type="text/javascript">
+
+            $(function() 
+            {
+                var $form = $(".require-validation");
+
+                $('form.require-validation').bind('submit', function(e) 
+                {
+                    var $form = $(".require-validation"), inputSelector = ['input[type=email]', 'input[type=password]', 'input[type=text]', 'input[type=file]', 'textarea'].join(', '), $inputs = $form.find('.required').find(inputSelector), $errorMessage = $form.find('div.error'), valid = true;
+
+                    $errorMessage.addClass('hide');
+
+                    $('.has-error').removeClass('has-error');
+
+                    $inputs.each(function(i, el)
+                    {
+                        var $input = $(el);
+                        if ($input.val() === '')
+                    {
+                        $input.parent().addClass('has-error');
+                        $errorMessage.removeClass('hide');
+                        e.preventDefault();
+                    }
+                    });
+                    if (!$form.data('cc-on-file'))
+                    {
+                        e.preventDefault();
+                        Stripe.setPublishableKey($form.data('stripe-publishable-key'));
+                        Stripe.createToken({number: $('.card-number').val(), cvc: $('.card-cvc').val(), exp_month: $('.card-expiry-month').val(), exp_year: $('.card-expiry-year').val()}, stripeResponseHandler);
+
+                    }
+                });
+
+                function stripeResponseHandler(status, response)
+                {
+                    if (response.error)
+                    {
+                        $('.error').removeClass('hide').find('.alert').text(response.error.message);
+
+                    }
+                    else
+                    {
+                        /* token contains id, last4, and card type */
+                        var token = response['id'];
+
+                        $form.find('input[type=text]').empty();
+                        $form.append("<input type='hidden' name='stripeToken' value='" + token + "'/>");
+                        $form.get(0).submit();
+                    }
+                }
+            });
+
+    </script>
     </body>
 </html>

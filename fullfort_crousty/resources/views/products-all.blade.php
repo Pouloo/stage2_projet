@@ -1,3 +1,4 @@
+<!-- Affichage de tous les produits disponibles -->
 @extends('design')
 
 @section('products_all')
@@ -10,6 +11,7 @@
 			@foreach ($products as $product)
 				<div class="col-sm-6 col-md-4 col-lg-3">
 					<div class="box hover-overlay" style="border-radius: 25px;">
+						<!-- → Redirection vers vue details produits -->
 						<a href="{{route('product.details', $product->id)}}" style="background-color: rgb(238, 238, 238); color: black;">
 							<div class="img-box" style="padding-bottom: 0;">
 								<img src="{{asset('product_img/'.$product->image)}}">

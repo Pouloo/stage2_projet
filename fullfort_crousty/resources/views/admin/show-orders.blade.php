@@ -1,3 +1,4 @@
+<!-- Affichage des commandes des tous les utilisateurs; C'est à partir de cette vue que se fait le changement de statut de la commande -->
 @extends('admin.design')
 
 @section('show_orders')
@@ -24,6 +25,7 @@
                     <td style="padding: 12px;">{{$order_product->product->price}}</td>
                     <td style="padding: 12px;"><img src="{{asset('product_img/'.$order_product->product->image)}}" style="width: 150px;"></td>
                     <td style="padding: 12px;">
+                        <!-- Formulaire responsable de du statut des commandes respectives -->
                         <form action="{{route('admin.order.status', $order_product->id)}}" method="post">
                             @csrf
                             <select name="status">

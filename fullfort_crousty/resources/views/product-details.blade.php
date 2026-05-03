@@ -1,3 +1,4 @@
+<!-- Affichage des charactéristiques d'un produit spécifique, bouton d'ajout dans le panier de l'utilisateur -->
 @extends('design')
 
 <base href="/public">

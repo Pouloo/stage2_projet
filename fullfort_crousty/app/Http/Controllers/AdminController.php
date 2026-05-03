@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\OrderProduct;
 use App\Models\Product;
 
+// Contrôleur Administrateur: Gère l'ajout de produits/catégories, statut des commandes
 class AdminController extends Controller
 {
     public function add_category()

@@ -1,3 +1,4 @@
+<!-- Affichage de tous les produits disponibles (dans le panel administratif); C'est à partir de cette vue que leur modification et suppression se fait -->
 @extends('admin.design')
 
 <base href="/public">
@@ -32,6 +33,7 @@
                     <td style="padding: 12px;">{{$product->price}}€</td>
                     <td style="padding: 12px;"><img src="{{asset('product_img/'.$product->image)}}" style="width: 150px;"></td>
                     <td style="padding: 12px;">{{$product->category}}</td>
+                    <!-- → Redirection vers vue de Supression/Modification de produit -->
                     <td style="padding: 12px; text-align: center;">
                         <a href="{{route('admin.update.product', $product->id)}}" style="width: 100px; padding: 10px; background-color: turquoise; color: white;">Modifier</a>
                         <a href="{{route('admin.delete.product', $product->id)}}" onclick="return confirm('Veuillez confirmer la suppression.')" style="width: 100px; padding: 10px; background-color: red; color: white;">Supprimer</a>

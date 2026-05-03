@@ -1,3 +1,4 @@
+<!-- Modification des charactéristiques d'un produit spécifique -->
 @extends('admin.design')
 
 <base href="/public">

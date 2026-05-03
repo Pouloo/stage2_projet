@@ -5,7 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-// Routes Clientes
+// Routes Clientes: Accessibles sans authentification
 Route::get('/', [UserController::class, 'get_products_latest'])->name('index');
 
 Route::get('/dashboard', [UserController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
@@ -13,7 +13,6 @@ Route::get('/dashboard', [UserController::class, 'index'])->middleware(['auth', 
 Route::get('/product-details/{id}', [UserController::class, 'get_product_details'])->name('product.details');
 Route::get('/products-all', [UserController::class, 'get_products_all'])->name('products.all');
 
-Route::get('/show-ordered', [UserController::class, 'show_user_orders'])->middleware(['auth', 'verified'])->name('user.show.orders');
 
 // Middleware d'Authentification (Laravel Breeze): Toute route contenue dans le scope de ce middleware requiert que l'utilisateur soit authentifié pour y accéder
 Route::middleware('auth')->group(function ()
@@ -22,14 +21,17 @@ Route::middleware('auth')->group(function ()
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     
-    // Routes Panier: ...
+    // Routes Panier: Structure de donnée précédant la conclusion de la commande
     Route::get('/cart-add-product/{id}', [UserController::class, 'cart_add_product'])->name('cart.add.product');
     Route::get('/cart-products', [UserController::class, 'cart_get_products'])->name('cart.products');
     Route::get('/cart-delete-product/{id}', [UserController::class, 'cart_delete_product'])->name('cart.delete.product');
     Route::post('/order-confirm', [UserController::class, 'confirm_order'])->name('order.confirm');
+    Route::get('/show-ordered', [UserController::class, 'show_user_orders'])->middleware(['auth', 'verified'])->name('user.show.orders');
+    Route::get('/payment', [UserController::class, 'payment'])->name('payment.post');
+    Route::post('/payment', [UserController::class, 'payment_post'])->name('payment.post');
 });
 
-// Middleware Administratif
+// Middleware Administratif: Seul un utilisateur dont la colonne 'user_type' a une valeur 'admin' peut accéder à ces routes (Voir AdminMiddleware.php*)
 Route::middleware('admin')->group(function ()
 {
     Route::get('/add-category', [AdminController::class, 'add_category'])->name('admin.add.category');

@@ -1,3 +1,4 @@
+<!-- Ajout d'une nouvelle ligne dans table 'category' -->
 @extends('admin.design')
 
 <base href="/public">

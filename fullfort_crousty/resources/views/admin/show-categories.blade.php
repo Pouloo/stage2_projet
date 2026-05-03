@@ -1,3 +1,4 @@
+<!-- Affichage de toutes les catégories existantes; C'est à partir de cette vue que leur modification et suppression se fait -->
 @extends('admin.design')
 
 <base href="/public">
@@ -23,6 +24,7 @@
                 <tr style="border-bottom: 1px solid #dddddd;">
                     <td style="padding: 12px;">{{$category->id}}</td>
                     <td style="padding: 12px;">{{$category->name}}</td>
+                    <!-- → Redirection vers vue de Supression/Modification de catégorie -->
                     <td style="padding: 12px;">
                         <a href="{{route('admin.update.category', $category->id)}}" style="width: 100px; padding: 10px; background-color: turquoise; color: white;">Modifier</a>
                         <a href="{{route('admin.delete.category', $category->id)}}" onclick="return confirm('Veuillez confirmer la suppression.')" style="width: 100px; padding: 10px; background-color: red; color: white;">Supprimer</a>

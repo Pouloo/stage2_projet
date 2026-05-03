@@ -14,13 +14,14 @@ class AdminMiddleware
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    // Middleware Administratif: regroupe les 
+    // Middleware Administratif: Définit la condition logique permettant de garantir la confidentialité des vues restreintes à un accès administratif (Voir son usage dans routes\web.php*)
     public function handle(Request $request, Closure $next)
     {
         if (Auth::check() && Auth::user()->user_type == "admin")
         {
             return $next($request);
         }
+        // Une erreur de code 401 sera renvoyée
         abort(401, "Unauthorized Access");
         // route('login');
     }

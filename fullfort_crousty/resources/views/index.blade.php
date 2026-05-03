@@ -1,3 +1,4 @@
+<!-- Vue par d'accueil / Affichage des produits récemment ajoutés -->
 @extends('design')
 
 <!-- <base href="/public"> -->

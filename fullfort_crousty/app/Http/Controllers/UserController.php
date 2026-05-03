@@ -8,7 +8,10 @@ use App\Models\User;
 use App\Models\Product;
 use App\Models\CartProduct;
 use App\Models\OrderProduct;
+use Session;
+use Stripe;
 
+// Contrôleur Utilisateur: Responsable des affichages de produits en page d'accueil et de gestion des produits en panier
 class UserController extends Controller
 {
     public function index()
@@ -98,5 +101,9 @@ class UserController extends Controller
         $order_products = OrderProduct::where('user_id', Auth::id())->get();
 
         return view('show-orders', compact('order_products'));
+    }
+    public function stripe()
+    {
+        return view('stripe');
     }
 }

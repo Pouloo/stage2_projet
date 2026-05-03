@@ -1,3 +1,4 @@
+<!-- Vue du dashboard administratif -->
 @extends('admin.design')
 
 <!-- <base href="/public"> -->

@@ -1,3 +1,4 @@
+<!-- Modification du nom d'une catégorie existante -->
 @extends('admin.design')
 
 <base href="/public">

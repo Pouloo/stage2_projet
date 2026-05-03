@@ -1,0 +1,66 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="oOZpMab6Bc5-st0E0KJy">
+    <mxGraphModel dx="2228" dy="743" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="RVAXVp_f9ugvjydKYshK-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Courier New;fontStyle=1" value="get_products_all();" vertex="1">
+          <mxGeometry height="60" width="150" x="-80" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="RVAXVp_f9ugvjydKYshK-18" edge="1" parent="1" source="RVAXVp_f9ugvjydKYshK-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="RVAXVp_f9ugvjydKYshK-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RVAXVp_f9ugvjydKYshK-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Courier New;fontStyle=1" value="Route::get(&#39;/products-all&#39;, ..." vertex="1">
+          <mxGeometry height="60" width="245" x="-530" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="RVAXVp_f9ugvjydKYshK-7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;fontFamily=Courier New;fontStyle=1" value="" vertex="1">
+          <mxGeometry height="160" width="260" x="-127" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="RVAXVp_f9ugvjydKYshK-8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Courier New;fontStyle=1" value="Controllers\UserController.php" vertex="1">
+          <mxGeometry height="60" width="220" x="-107" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="RVAXVp_f9ugvjydKYshK-9" parent="1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontFamily=Courier New;fontStyle=1" value="&lt;font&gt;&lt;font style=&quot;&quot;&gt;↳&lt;/font&gt; &lt;/font&gt;$products = Product::all();" vertex="1">
+          <mxGeometry height="30" width="230" x="-127" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="RVAXVp_f9ugvjydKYshK-12" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;fontFamily=Courier New;fontStyle=1" value="" vertex="1">
+          <mxGeometry height="140" width="380" x="-575" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="RVAXVp_f9ugvjydKYshK-13" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Courier New;fontStyle=1" value="routes\web.php" vertex="1">
+          <mxGeometry height="60" width="120" x="-445" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="RVAXVp_f9ugvjydKYshK-16" parent="1" style="text;whiteSpace=wrap;fontFamily=Courier New;fontStyle=1" value="↳ [UserController::class, &#39;get_products_all&#39;])" vertex="1">
+          <mxGeometry height="40" width="340" x="-560" y="370" as="geometry" />
+        </mxCell>
+        <UserObject label="↳  name(&#39;products.all&#39;);" link="↳ name(&#39;products.all&#39;);" id="RVAXVp_f9ugvjydKYshK-17">
+          <mxCell parent="1" style="text;whiteSpace=wrap;fontFamily=Courier New;fontStyle=1" vertex="1">
+            <mxGeometry height="30" width="175" x="-560" y="390" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="RVAXVp_f9ugvjydKYshK-20" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;fontFamily=Courier New;fontStyle=1" value="" vertex="1">
+          <mxGeometry height="140" width="260" x="250" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="RVAXVp_f9ugvjydKYshK-21" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Courier New;fontStyle=1" value="views\..." vertex="1">
+          <mxGeometry height="60" width="140" x="310" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="RVAXVp_f9ugvjydKYshK-22" parent="1" style="text;whiteSpace=wrap;fontStyle=1;fontFamily=Courier New;fontSize=12;" value="↳ return view(&#39;products-all&#39;, ..." vertex="1">
+          <mxGeometry height="40" width="263" x="-123" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="RVAXVp_f9ugvjydKYshK-23" edge="1" parent="1" source="RVAXVp_f9ugvjydKYshK-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="RVAXVp_f9ugvjydKYshK-24">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="110" y="480" as="sourcePoint" />
+            <mxPoint x="315" y="480" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RVAXVp_f9ugvjydKYshK-24" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Courier New;fontStyle=1" value="products-all.blade.php" vertex="1">
+          <mxGeometry height="60" width="170" x="295" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="RVAXVp_f9ugvjydKYshK-26" parent="1" style="text;whiteSpace=wrap;fontFamily=Courier New;fontStyle=1" value="↳ &lt;p&gt;{{$product-&gt;name}}&lt;/p&gt;" vertex="1">
+          <mxGeometry height="40" width="200" x="280" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="RVAXVp_f9ugvjydKYshK-28" parent="1" style="text;whiteSpace=wrap;fontStyle=1;fontFamily=Courier New;fontSize=12;" value="... compact(&#39;products&#39;));" vertex="1">
+          <mxGeometry height="40" width="263" x="-115" y="409" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

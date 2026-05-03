@@ -2,7 +2,7 @@
 
 <base href="/public">
 
-<!-- Vue de type affichage: Cette vue affiche -->
+<!-- Vue de d'affichage des produits présents dans le panier actuel, elle affiche les données de la table 'cart' et prend l'entrée utilisatrice des coordonnées du client -->
 @section('cart_products')
 
 <div style="width: 75%; margin: auto; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px 8px rgba(0,0,0,0.1) ;">
