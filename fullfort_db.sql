@@ -1,82 +1,52 @@
 -- Creation Tables
-CREATE TABLE User
+CREATE TABLE utilisateurs
 (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    name TEXT UNIQUE NOT NULL,
-    email TEXT UNIQUE NOT NULL,
-    mdp TEXT UNIQUE NOT NULL,
-    type_user TEXT UNIQUE NOT NULL,
-);
-CREATE TABLE Compte
-(
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    nom TEXT NOT NULL,
-    prenom TEXT NOT NULL,
-    telephone TEXT(15) UNIQUE NOT NULL,
-    mail TEXT(60) UNIQUE NOT NULL,
-    id_user INT
+    id BIGINT(20) UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    nom VARCHAR(255),
+    email VARCHAR(255) UNIQUE,
+    mdp VARCHAR(255),
+    type_user VARCHAR(255) DEFAULT 'user'
 );
 
-CREATE TABLE Article
+CREATE TABLE produits
 (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    nom TEXT NOT NULL,
-    description TEXT NOT NULL,
-    quantite INT NOT NULL,
-    prix DECIMAL(10, 2) NOT NULL,
-    id_categorie INT
+    id BIGINT(20) UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    nom VARCHAR(255),
+    description LONGTEXT,
+    quantite INT(11),
+    prix INT(11),
+    categorie VARCHAR(255),
+    image VARCHAR(255)
 );
 
-CREATE TABLE Paiement
+CREATE TABLE categories
 (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    prix DECIMAL(10, 2) NOT NULL,
-    prix_tva DECIMAL(10, 2) NOT NULL,
-    moyen_paiement TEXT NOT NULL,
-    id_compte INT,
-    id_panier INT
+    id BIGINT(20) UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    nom VARCHAR(255)
 );
 
-CREATE TABLE Panier
+CREATE TABLE produits_panier
 (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    nombre_articles INT NOT NULL,
-    id_user INT,
-    id_article INT
+    id BIGINT(20) UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    id_utilisateur BIGINT(20),
+    id_produit BIGINT(20)
 );
 
-CREATE TABLE Reduction
+CREATE TABLE produits_commande
 (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    points_fidelite INT,
-    taux_reduction FLOAT(1, 0),
-    id_compte INT
+    id BIGINT(20) UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    adresse_client VARCHAR(255),
+    telephone_client VARCHAR(255),
+    statut_commande VARCHAR(255) DEFAULT 'en cours',
+    id_utilisateur BIGINT(20),
+    id_produit BIGINT(20)
 );
 
-CREATE TABLE Categorie
-(
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    titre TEXT UNIQUE
-);
+ALTER TABLE produits_panier ADD FOREIGN KEY (id_utilisateur) REFERENCES utilisateurs(id) ON DELETE CASCADE;
+ALTER TABLE produits_panier ADD FOREIGN KEY (id_produit) REFERENCES produits(id) ON DELETE CASCADE;
+ALTER TABLE produits_commande ADD FOREIGN KEY (id_utilisateur) REFERENCES utilisateurs(id) ON DELETE CASCADE;
+ALTER TABLE produits_commande ADD FOREIGN KEY (id_produit) REFERENCES produits(id) ON DELETE CASCADE;
 
-CREATE TABLE Commande
-(
-    id_user INT,
-    id_article INT
-);
-
-ALTER TABLE User ADD FOREIGN KEY (id_admin) REFERENCES User(id);
-ALTER TABLE User ADD FOREIGN KEY (id_compte) REFERENCES Compte(id);
-ALTER TABLE Compte ADD FOREIGN KEY (id_user) REFERENCES User(id);
-ALTER TABLE Article ADD FOREIGN KEY (id_categorie) REFERENCES Categorie(id);
-ALTER TABLE Paiement ADD FOREIGN KEY (id_compte) REFERENCES Compte(id);
-ALTER TABLE Paiement ADD FOREIGN KEY (id_panier) REFERENCES Panier(id);
-ALTER TABLE Panier ADD FOREIGN KEY (id_user) REFERENCES User(id);
-ALTER TABLE Panier ADD FOREIGN KEY (id_article) REFERENCES Article(id);
-ALTER TABLE Commande ADD FOREIGN KEY (id_user) REFERENCES User(id);
-ALTER TABLE Reduction ADD FOREIGN KEY (id_compte) REFERENCES Compte(id);
-ALTER TABLE Commande ADD FOREIGN KEY (id_user) REFERENCES User(id);
-ALTER TABLE Commande ADD FOREIGN KEY (id_article) REFERENCES Article(id);
 
 -- Insertion Données
 -- (...)
