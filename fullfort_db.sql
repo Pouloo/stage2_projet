@@ -47,6 +47,5 @@ ALTER TABLE produits_panier ADD FOREIGN KEY (id_produit) REFERENCES produits(id)
 ALTER TABLE produits_commande ADD FOREIGN KEY (id_utilisateur) REFERENCES utilisateurs(id) ON DELETE CASCADE;
 ALTER TABLE produits_commande ADD FOREIGN KEY (id_produit) REFERENCES produits(id) ON DELETE CASCADE;
 
-
 -- Insertion Données
 -- (...)
