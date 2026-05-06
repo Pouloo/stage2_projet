@@ -30,7 +30,7 @@
             </div>
             <p style="margin: 0 30px;">{{$product->description}}</p>
             @if ($product->quantity != 0)
-                <a href="{{route('cart.add.product', $product->id)}}" style="background-color: #2a5885; color: white; border: none; padding: 12px 25px; margin: 10px 30px; font-size: 16px; border-radius: 4px; cursor: pointer; float: left;">Ajouter au Panier</a>
+                <a href="{{route('cart.add.product', $product->id)}}" class="btn btn-primary" style="padding: 12px 25px; margin: 10px 30px; float: left;">Ajouter au Panier</a>
             @endif
         </div>
     </div>

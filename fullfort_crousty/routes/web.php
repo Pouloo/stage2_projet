@@ -15,8 +15,9 @@ Route::get('/products-all', [UserController::class, 'get_products_all'])->name('
 
 
 // Middleware d'Authentification (Laravel Breeze): Toute route contenue dans le scope de ce middleware requiert que l'utilisateur soit authentifié pour y accéder
-Route::middleware('auth')->group(function ()
+Route::middleware(['auth', 'verified'])->group(function ()
 {
+    // Routes du profile utilisateur de Breeze
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -26,8 +27,8 @@ Route::middleware('auth')->group(function ()
     Route::get('/cart-products', [UserController::class, 'cart_get_products'])->name('cart.products');
     Route::get('/cart-delete-product/{id}', [UserController::class, 'cart_delete_product'])->name('cart.delete.product');
     Route::post('/order-confirm', [UserController::class, 'confirm_order'])->name('order.confirm');
-    Route::get('/show-ordered', [UserController::class, 'show_user_orders'])->middleware(['auth', 'verified'])->name('user.show.orders');
-    Route::get('/payment', [UserController::class, 'payment'])->name('payment.post');
+    Route::get('/show-ordered', [UserController::class, 'show_user_orders'])->name('user.show.orders');
+    Route::get('/payment/{price}', [UserController::class, 'payment'])->name('payment');
     Route::post('/payment', [UserController::class, 'payment_post'])->name('payment.post');
 });
 

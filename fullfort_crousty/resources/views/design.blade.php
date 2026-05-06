@@ -37,6 +37,10 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent" style="background-color: rgb(219, 69, 102);">
                         <div class="user_option">
+                                <a href="{{route('index')}}">
+                                    <i class="fa fa-home" aria-hidden="true"></i>
+                                    <span>Accueil</span>
+                                </a>
                             @if (Auth::check())
                                 <a href="{{route('dashboard')}}">
                                     <i class="fa fa-user" aria-hidden="true"></i>
