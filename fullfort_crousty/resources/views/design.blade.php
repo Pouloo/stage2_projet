@@ -37,13 +37,13 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent" style="background-color: rgb(219, 69, 102);">
                         <div class="user_option">
-                                <a href="{{route('index')}}">
-                                    <i class="fa fa-home" aria-hidden="true"></i>
-                                    <span>Accueil</span>
-                                </a>
+                            <a href="{{route('index')}}">
+                                <i class="fa fa-home" aria-hidden="true"></i>
+                                <span>Accueil</span>
+                            </a>
                             @if (Auth::check())
                                 <a href="{{route('dashboard')}}">
-                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                    <i class="fa fa-user-circle" aria-hidden="true"></i>
                                     <span>Tableau de Bord</span>
                                 </a>
                                 <form method="POST" action="{{route('logout')}}" style="margin-bottom: 0;">
@@ -54,18 +54,18 @@
                                     </a>
                                 </form>
                             @else
-                                <a href="{{route('login')}}">
-                                    <i class="fa fa-user" aria-hidden="true"></i>
-                                    <span>Connexion</span>
-                                </a>
-                                <a href="{{route('register')}}">
-                                    <i class="fa fa-user" aria-hidden="true"></i>
-                                    <span>Inscription</span>
-                                </a>
+                            <a href="{{route('register')}}">
+                                <i class="fa fa-user-circle" aria-hidden="true"></i>
+                                <span>Inscription</span>
+                            </a>
+                            <a href="{{route('login')}}">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                                <span>Connexion</span>
+                            </a>
                             @endif
                             @if (Auth::check())
                                 <a href="{{route('cart.products')}}">
-                                    <i class="fa fa-shopping-bag" aria-hidden="true">&nbsp;{{$count}}</i>
+                                    <i class="fa fa-shopping-cart" aria-hidden="true">&nbsp;{{$count}}</i>
                                 </a>
                             @endif
                         </div>
@@ -185,7 +185,7 @@
                     <div class="row">
                         <div class="col-md-6 col-lg-3">
                             <h6>À PROPOS DE NOUS</h6>
-                            <p>Fullfort crousty Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet,</p>
+                            <p>Fullfort crousty, initialement une entreprise de publicité en ligne, souhaite s'étendre dans l'univers de la restauration rapide.</p>
                         </div>
                         <div class="col-md-6 col-lg-3">
                             <div class="info_form ">

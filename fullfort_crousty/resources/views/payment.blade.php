@@ -30,30 +30,22 @@
                                     <p>{{ Session::get('success') }}</p>
                                 </div>
                             @endif
-                            <form action="{{route('payment.post')}}" role="form" 
-                                    method="post" 
-                                    class="require-validation"
-                                    data-cc-on-file="false"
-                                    data-stripe-publishable-key="{{ env('STRIPE_KEY') }}"
-                                    id="payment-form">
+                            <form action="{{route('payment.post')}}" role="form" method="post" class="require-validation" data-cc-on-file="false" data-stripe-publishable-key="{{ env('STRIPE_KEY') }}" id="payment-form">
 
                                 @csrf
                                 <div class='form-row row'>
                                     <div class='col-xs-12 form-group required'>
-                                        <label class='control-label'>Adresse Client</label> <input
-                                            class='form-control' size='4' type='text'>
+                                        <label class='control-label'>Adresse Client</label> <input class='form-control' size='4' type='text'>
                                     </div>
                                 </div>
                                 <div class='form-row row'>
                                     <div class='col-xs-12 form-group required'>
-                                        <label class='control-label'>Téléphone Client</label> <input
-                                            class='form-control' size='4' type='text'>
+                                        <label class='control-label'>Téléphone Client</label> <input class='form-control' size='4' type='text'>
                                     </div>
                                 </div>
                                 <div class='form-row row'>
                                     <div class='col-xs-12 form-group required'>
-                                        <label class='control-label'>Nom sur la carte</label> <input
-                                            class='form-control' size='4' type='text'>
+                                        <label class='control-label'>Nom sur la carte</label> <input class='form-control' size='4' type='text'>
                                     </div>
                                 </div>
                                 <div class='form-row row'>

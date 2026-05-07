@@ -23,8 +23,13 @@ class UserController extends Controller
         $ordered_products_count = OrderProduct::where('order_status', 'pending')->count();
         $delivered_products_count = OrderProduct::where('order_status', 'delivered')->count();
 
+        $order_count = OrderProduct::where('user_id', Auth::id())->count();
+        $order_pending_count = OrderProduct::where('user_id', Auth::id())->where('order_status', 'pending')->count();
+        $order_delivered_count = OrderProduct::where('user_id', Auth::id())->where('order_status', 'delivered')->count();
+        $order_paid_count = OrderProduct::where('user_id', Auth::id())->where('payment_status', 'prepaid')->count();
+
         if (Auth::check() && Auth::user()->user_type=="user")
-            return view('dashboard');
+            return view('dashboard', compact('order_count','order_pending_count','order_delivered_count','order_paid_count'));
         else if (Auth::check() && Auth::user()->user_type=="admin")
             return view('admin.dashboard', compact('product_count', 'user_count', 'ordered_products_count', 'delivered_products_count'));
     }

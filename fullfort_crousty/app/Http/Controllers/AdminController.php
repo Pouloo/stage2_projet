@@ -141,7 +141,7 @@ class AdminController extends Controller
     public function change_order_status(Request $request, $id)
     {
         $order_product = OrderProduct::findOrFail($id);
-        $order_product->status = $request->status;
+        $order_product->order_status = $request->status;
         $order_product->save();
 
         return redirect()->back();

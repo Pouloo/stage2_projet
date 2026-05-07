@@ -31,9 +31,9 @@
                                     <td style="padding: 12px;">{{$order_product->product->name}}</td>
                                     <td style="padding: 12px;">{{$order_product->product->price}}</td>
                                     <td style="padding: 12px;"><img src="{{asset('product_img/'.$order_product->product->image)}}" style="width: 150px;"></td>
-                                    @if ($order_product->status == 'pending')
+                                    @if ($order_product->order_status == 'pending')
                                         <td style="padding: 12px; color: blue;">En Cours de Livraison...</td>
-                                    @elseif ($order_product->status == 'delivered')
+                                    @elseif ($order_product->order_status == 'delivered')
                                         <td style="padding: 12px; color: green;">Livré ✓</td>
                                     @endif
                                 </tr>

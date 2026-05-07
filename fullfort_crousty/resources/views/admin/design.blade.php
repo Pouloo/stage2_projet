@@ -14,7 +14,7 @@
 	<!-- Liaison CSS Bootstrap -->
 		<link rel="stylesheet" href="admin/vendor/bootstrap/css/bootstrap.min.css">
 
-	<!-- Font Awesome CSS-->
+	<!-- CSS Font Awesome -->
 		<link rel="stylesheet" href="admin/vendor/font-awesome/css/font-awesome.min.css">
 
 	<!-- CSS Sur Mesure -->
@@ -22,12 +22,13 @@
 
 	<!-- CSS Sur Mesure/Custom (Police) -->
 		<link rel="stylesheet" href="admin/css/font.css">
+	
+		<!-- CSS Thème -->
+		<link rel="stylesheet" href="admin/css/style.default.css" id="theme-stylesheet">
 
 	<!-- Google Fonts (Police) -->
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,700">
 
-	<!-- CSS Thème -->
-		<link rel="stylesheet" href="admin/css/style.default.css" id="theme-stylesheet">
 
 	<!-- Favicon-->
 		<link rel="shortcut icon" href="admin/img/favicon.ico">
@@ -46,24 +47,17 @@
 						</form>
 					</div>
 				</div>
-				<div class="container-fluid d-flex align-items-center justify-content-between">
-				<div class="navbar-header">
-				<!-- Navbar Header -->
-					<!-- <a href="index.html" class="navbar-brand">
-						<div class="brand-text brand-big visible text-uppercase"><strong class="text-primary">Dark</strong><strong>Admin</strong></div>
-						<div class="brand-text brand-sm"><strong class="text-primary">D</strong><strong>A</strong></div>
-					</a> -->
-
-				</div>
 				<div class="right-menu list-inline no-margin-bottom">    
 					<div class="list-inline-item logout">
 						<form method="POST" action="{{ route('logout') }}">
 							@csrf
-							<x-dropdown-link :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
-								{{ __('Déconnexion') }}
-							</x-dropdown-link>
 							<x-dropdown-link :href="route('index')">
-								{{ __('Retour') }}
+								<i class="fa fa-home" aria-hidden="true"></i>
+								{{ __('Accueil') }}
+							</x-dropdown-link>
+							<x-dropdown-link :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
+								<i class="fa fa-user" aria-hidden="true"></i>
+								{{ __('Déconnexion') }}
 							</x-dropdown-link>
 						</form>
 					</div>
@@ -73,20 +67,8 @@
 		<div class="d-flex align-items-stretch">
 		<!-- Navigation Sidebar -->
 			<nav id="sidebar">
-
-			<!-- Header Sidebar -->
-				<!-- <div class="sidebar-header d-flex align-items-center">
-					<div class="avatar"><img src="img/avatar-6.jpg" alt="..." class="img-fluid rounded-circle"></div>
-					<div class="title">
-						<h1 class="h5">Admin</h1>
-						<p>Fullfort Productions</p>
-					</div>
-				</div> -->
-
-			<!-- Menus de Navidation Sidebar -->
-			 	<!-- <span class="heading">Main</span> -->
 				<ul class="list-unstyled">
-					<li class="active"><a href="/dashboard"> <i class="icon-home"></i>Vue D'ensemble</a></li>
+					<li><a href="/dashboard"> <i class="icon-home"></i>Vue D'ensemble</a></li>
 					<li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-writing-whiteboard"></i>Catégories</a>
 						<ul id="exampledropdownDropdown" class="collapse list-unstyled ">
 							<li><a href="{{route('admin.add.category')}}">Ajouter Catégorie</a></li>
