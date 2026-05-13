@@ -20,6 +20,7 @@
                 <th style="padding: 12px; text-align: left; border: 1px solid #dddddd;">Prix Produit</th>
                 <th style="padding: 12px; text-align: left; border: 1px solid #dddddd;">Image Produit</th>
                 <th style="padding: 12px; text-align: left; border: 1px solid #dddddd;">Catégorie Produit</th>
+                <th style="padding: 12px; text-align: left; border: 1px solid #dddddd;">Score</th>
                 <th style="padding: 12px; text-align: left; border: 1px solid #dddddd;">Action</th>
             </tr>
         </thead>
@@ -33,6 +34,7 @@
                     <td style="padding: 12px;">{{$product->price}}€</td>
                     <td style="padding: 12px;"><img src="{{asset('product_img/'.$product->image)}}" style="width: 150px;"></td>
                     <td style="padding: 12px;">{{$product->category}}</td>
+                    <td style="padding: 12px;">{{$product->score}}</td>
                     <!-- → Redirection vers vue de Supression/Modification de produit -->
                     <td style="padding: 12px; text-align: center;">
                         <a href="{{route('admin.update.product', $product->id)}}" style="width: 100px; padding: 10px; background-color: turquoise; color: white;">Modifier</a>

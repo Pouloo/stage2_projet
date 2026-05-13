@@ -10,7 +10,7 @@
 		</div>
 		<div class="row">
 			@foreach ($products as $product)
-				<div class="col-sm-6 col-md-4 col-lg-3">
+				<div class="col-sm-6 col-md-4 col-lg-3" style="display: block; margin: auto;">
 					<div class="box hover-overlay" style="border-radius: 25px;">
 						<a href="{{route('product.details', $product->id)}}" style="background-color: rgb(238, 238, 238); color: black;">
 							<div class="img-box" style="padding-bottom: 0;">
@@ -32,6 +32,9 @@
 		</div>
 		<div class="btn-box">
 			<a href="{{route('products.all')}}">Voir Tous Les Produits</a>
+		</div>
+		<div class="btn-box">
+			<a href="{{route('products.best')}}">Voir Les Meilleurs Produits</a>
 		</div>
 	</div>
 

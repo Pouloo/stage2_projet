@@ -113,6 +113,8 @@
 
             @yield('products_all')
 
+            @yield('products_best')
+
             @yield('cart_products')
 
             @yield('payment')

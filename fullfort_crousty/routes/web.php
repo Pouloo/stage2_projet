@@ -12,6 +12,7 @@ Route::get('/dashboard', [UserController::class, 'index'])->middleware(['auth', 
 
 Route::get('/product-details/{id}', [UserController::class, 'get_product_details'])->name('product.details');
 Route::get('/products-all', [UserController::class, 'get_products_all'])->name('products.all');
+Route::get('/products-best', [UserController::class, 'get_products_best'])->name('products.best');
 
 
 // Middleware d'Authentification (Laravel Breeze): Toute route contenue dans le scope de ce middleware requiert que l'utilisateur soit authentifié pour y accéder

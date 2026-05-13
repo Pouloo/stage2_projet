@@ -46,8 +46,16 @@ class UserController extends Controller
     {
         $count = CartProduct::where('user_id', Auth::id())->count();
         $products = Product::all();
+        $product_best = Product::orderBy('score', 'desc')->limit(1)->get();
 
-        return view('products-all', compact('products', 'count'));
+        return view('products-all', compact('products', 'count', 'product_best'));
+    }
+    public function get_products_best()
+    {
+        $count = CartProduct::where('user_id', Auth::id())->count();
+        $products_best = Product::orderBy('score', 'desc')->get();
+
+        return view('products-best', compact('products_best', 'count'));
     }
     public function get_product_details($id)
     {
