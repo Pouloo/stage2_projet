@@ -185,7 +185,7 @@
                     <div class="row">
                         <div class="col-md-6 col-lg-3">
                             <h6>À PROPOS DE NOUS</h6>
-                            <p>Fullfort crousty, initialement une entreprise de publicité en ligne, souhaite s'étendre dans l'univers de la restauration rapide.</p>
+                            <p>Fullfort crousty, une entreprise de publicité en ligne, souhaite s'étendre dans l'univers de la restauration rapide pour vous proposer des produits de qualité.</p>
                         </div>
                         <div class="col-md-6 col-lg-3">
                             <div class="info_form ">
@@ -198,7 +198,7 @@
                         </div>
                         <div class="col-md-6 col-lg-3">
                             <h6>BESOIN D'AIDE?</h6>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet,</p>
+                            <p>Nos conseillers clientèle sont à l'écoute 24h/24, et notre assistance technique est reactive et qualitative.</p>
                         </div>
                         <div class="col-md-6 col-lg-3">
                             <h6>NOUS CONTACTER</h6>
